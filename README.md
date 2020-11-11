@@ -27,7 +27,6 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
-    - [ ] Fear: TodoList/EidtBar need to cannel if it meet a empty input.
     - [ ] Fear: Can make the todolist be stored as a `.json` file.
     - [ ] Stl : Make the TodoList/AddButton looks better.
       - [x] Stl: Make the TodoList/AddButton bigger
@@ -35,9 +34,13 @@ npm run lint
     - [ ] Stl : Make the TodoList/EditBar looks better.
       - [x] Stl: Make thhe TodoList/EditBar widen.
       - [ ] ...
+    - [ ] Fear: Better Bar
+      - [ ] has a button to kill self.
+      - [ ] has a checkedbox to gray self.
     - [x] Fear: Add TodoList/Bar's add button.
     - [x] Fear: Add TodoList/EidtBar.
     - [x] Fix : TodoList/EidtBar need to enempty its message after enter.
+    - [x] Fear: TodoList/EidtBar need to cannel if it meet a empty input.
   - [ ] DayChart
 
 ---

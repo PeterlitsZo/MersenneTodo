@@ -13,7 +13,11 @@
         :obj="bar"
         @delete-bar="console.log('!!!TODO!!!')"
       />
-      <EditBar @submit="submit" v-if="editing"/>
+      <EditBar
+        @submit="submit"
+        @dissubmit="dissubmit"
+        v-if="editing"
+      />
     </div>
   </div>
 </template>
@@ -35,8 +39,12 @@
       addTodo () {
         this.editing = true
       },
+
       submit (message) {
         this.bars.push({title: message})
+      },
+      dissubmit () {
+        this.editing = false
       }
     },
     components: {

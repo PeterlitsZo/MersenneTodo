@@ -19,8 +19,12 @@
     },
     methods: {
       submit () {
-        this.$emit('submit', this.message)
-        this.message = ''
+        if (this.message) {
+          this.$emit('submit', this.message)
+          this.message = ''
+        } else {
+          this.$emit('dissubmit')
+        }
       }
     }
   }
