@@ -26,12 +26,14 @@ npm run lint
 ## TODO
 
 - [ ] Root
-  - [ ] Fix : TodoList/EidtBar need to enempty its message after enter.
-  - [ ] Fear: TodoList/EidtBar need to cannel if it meet a empty input.
-  - [ ] Fear: Can make the todolist be stored as a `.json` file.
-  - [ ] Stl : Make the TodoList/AddButton looks better.
-  - [x] Fear: Add TodoList/Bar's add button.
-  - [x] Fear: Add TodoList/EidtBar.
+  - [ ] TodoList
+    - [ ] Fear: TodoList/EidtBar need to cannel if it meet a empty input.
+    - [ ] Fear: Can make the todolist be stored as a `.json` file.
+    - [ ] Stl : Make the TodoList/AddButton looks better.
+    - [x] Fear: Add TodoList/Bar's add button.
+    - [x] Fear: Add TodoList/EidtBar.
+    - [x] Fix : TodoList/EidtBar need to enempty its message after enter.
+  - [ ] DayChart
 
 ---
 

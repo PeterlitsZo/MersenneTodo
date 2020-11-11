@@ -2,7 +2,7 @@
   <div>
     <input
       v-model="message"
-      @keyup.enter="$emit('submit', message)"
+      @keyup.enter="submit"
       placeholder="New Todo... (Enter nothing to cannel)"
     />
   </div>
@@ -14,6 +14,12 @@
     data: () => {
       return {
         message: ''
+      }
+    },
+    methods: {
+      submit () {
+        this.$emit('submit', this.message)
+        this.message = ''
       }
     }
   }

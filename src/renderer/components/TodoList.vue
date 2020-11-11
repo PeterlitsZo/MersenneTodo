@@ -29,7 +29,7 @@
     name: 'TodoList',
     data: () => {
       return {
-        bars: [{title: 'temp1'}, {title: 'temp2'}, {title: 'temp3'}],
+        bars: [],
         editing: false
       }
     },
