@@ -1,6 +1,7 @@
 <template>
   <div>
     <input
+      class="EditBarInput"
       v-model="message"
       @keyup.enter="submit"
       placeholder="New Todo... (Enter nothing to cannel)"
@@ -26,4 +27,7 @@
 </script>
 
 <style>
+  .EditBarInput {
+    width: 100%;
+  }
 </style>
