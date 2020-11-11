@@ -1,6 +1,15 @@
 <template>
   <div class="noselect">
-    <h1>TodoList</h1>
+    <div class="title">
+      <div class="titleText">
+        <h1>TodoList</h1>
+      </div>
+      <div class="titleTools">
+        <div class="titleTool">
+          <v-icon name="plus" />
+        </div>
+      </div>
+    </div>
     <div v-for="bar in bars">
       <Bar :obj="bar" />
     </div>
@@ -26,5 +35,22 @@
 <style>
   .noselect {
     user-select: none;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titleText {
+    flex: auto;
+  }
+
+  .titleTools {
+    flex: none;
+  }
+
+  .titleTool {
   }
 </style>
