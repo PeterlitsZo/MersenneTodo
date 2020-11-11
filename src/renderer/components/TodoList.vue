@@ -2,9 +2,7 @@
   <div class="noselect">
     <!-- The title of the TodoList -->
     <div class="title">
-      <div class="titleText">
-        <h1>TodoList</h1>
-      </div>
+      <div class="titleText">TodoList</div>
       <AddButton @add-todo="addTodo" />
     </div>
 
@@ -55,6 +53,7 @@
   }
 
   .title {
+    font-size: 2em;
     display: flex;
     justify-content: center;
     align-items: center;

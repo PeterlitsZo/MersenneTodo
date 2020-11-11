@@ -1,6 +1,9 @@
 <template>
   <div class="titleTools">
-    <v-icon @click="$emit('add-todo')" name="plus" />
+    <v-icon @click="$emit('add-todo')">
+      <v-icon name="plus" />
+      <v-icon scale="2" name="regular/square" />
+    </v-icon>
   </div>
 </template>
 
