@@ -25,9 +25,9 @@ npm run lint
 
 ## TODO
 
--[ ] Add TodoList/Bar's add button.
-     > I need a add button component, which can ask TodoList to update its bars.
--[ ] Can make the todolist be stored as a `.json` file.
+- [ ] Add TodoList/Bar's add button.
+  > I need a add button component, which can ask TodoList to update its bars.
+- [ ] Can make the todolist be stored as a `.json` file.
 
 ---
 
