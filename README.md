@@ -32,6 +32,11 @@ npm run lint
   - [ ] Let it raise a event.
   - [ ] Let the TodoList accept the event.
 - [ ] Add TodoList/EidtBar.
+  > When the add button is pushed, this component need to show and wait for a input.
+  > After input, the conntent need to add to the `bars'.
+  - [x] Make the TodoList/EidtBar be a component.
+  - [ ] Make it can deal with input and raise a event.
+  - [ ] Let the TodoList accept the event.
 - [ ] Can make the todolist be stored as a `.json` file.
 
 ---

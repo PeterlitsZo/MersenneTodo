@@ -1,33 +1,44 @@
 <template>
   <div class="noselect">
+    <!-- The title of the TodoList -->
     <div class="title">
       <div class="titleText">
         <h1>TodoList</h1>
       </div>
       <div class="titleTools">
-        <div class="titleTool">
-          <v-icon name="plus" />
-        </div>
+        <v-icon name="plus" />
       </div>
     </div>
-    <div v-for="bar in bars">
-      <Bar :obj="bar" />
+
+    <!-- The list of the TodoList/Bar -->
+    <div>
+      <Bar
+        v-for="bar in bars"
+        :obj="bar"
+        @on-delete="console.log('!!!TODO!!!')"
+      />
+      <EditBar
+        v-if="editing"
+      />
     </div>
   </div>
 </template>
 
 <script>
   import Bar from './TodoList/Bar.vue'
+  import EditBar from './TodoList/EditBar.vue'
 
   export default {
     name: 'TodoList',
     data: () => {
       return {
-        bars: [{title: 'temp1'}, {title: 'temp2'}, {title: 'temp3'}]
+        bars: [{title: 'temp1'}, {title: 'temp2'}, {title: 'temp3'}],
+        editing: false
       }
     },
     components: {
-      'Bar': Bar
+      'Bar': Bar,
+      'EditBar': EditBar
     }
   }
 </script>
@@ -49,8 +60,5 @@
 
   .titleTools {
     flex: none;
-  }
-
-  .titleTool {
   }
 </style>
