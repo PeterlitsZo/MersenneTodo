@@ -5,9 +5,7 @@
       <div class="titleText">
         <h1>TodoList</h1>
       </div>
-      <div class="titleTools">
-        <v-icon name="plus" />
-      </div>
+      <AddButton @add-todo="addTodo" />
     </div>
 
     <!-- The list of the TodoList/Bar -->
@@ -15,11 +13,9 @@
       <Bar
         v-for="bar in bars"
         :obj="bar"
-        @on-delete="console.log('!!!TODO!!!')"
+        @delete-bar="console.log('!!!TODO!!!')"
       />
-      <EditBar
-        v-if="editing"
-      />
+      <EditBar v-if="editing"/>
     </div>
   </div>
 </template>
@@ -27,6 +23,7 @@
 <script>
   import Bar from './TodoList/Bar.vue'
   import EditBar from './TodoList/EditBar.vue'
+  import AddButton from './TodoList/AddButton.vue'
 
   export default {
     name: 'TodoList',
@@ -36,9 +33,15 @@
         editing: false
       }
     },
+    methods: {
+      addTodo () {
+        this.editing = true
+      }
+    },
     components: {
       'Bar': Bar,
-      'EditBar': EditBar
+      'EditBar': EditBar,
+      'AddButton': AddButton
     }
   }
 </script>
@@ -56,9 +59,5 @@
 
   .titleText {
     flex: auto;
-  }
-
-  .titleTools {
-    flex: none;
   }
 </style>

@@ -25,19 +25,16 @@ npm run lint
 
 ## TODO
 
-- [ ] Add TodoList/Bar's add button.
-  > I need a add button component, which can ask TodoList to update its bars.
-  - [x] Add icon add the title.
-  - [ ] Make the icon be a component.
-  - [ ] Let it raise a event.
-  - [ ] Let the TodoList accept the event.
-- [ ] Add TodoList/EidtBar.
-  > When the add button is pushed, this component need to show and wait for a input.
-  > After input, the conntent need to add to the `bars'.
-  - [x] Make the TodoList/EidtBar be a component.
-  - [ ] Make it can deal with input and raise a event.
-  - [ ] Let the TodoList accept the event.
-- [ ] Can make the todolist be stored as a `.json` file.
+- [ ] Root
+  - [ ] Add TodoList/EidtBar.
+    > When the add button is pushed, this component need to show and wait for a input.
+    > After input, the conntent need to add to the `bars'.
+    - [x] Make the TodoList/EidtBar be a component.
+    - [ ] Make it can deal with input and raise a event.
+    - [ ] Let the TodoList accept the event.
+  - [ ] Can make the todolist be stored as a `.json` file.
+  - [ ] Make the TodoList/AddButton looks better.
+  - [x] Add TodoList/Bar's add button.
 
 ---
 
