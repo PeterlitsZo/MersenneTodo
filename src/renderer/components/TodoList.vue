@@ -15,7 +15,7 @@
         :obj="bar"
         @delete-bar="console.log('!!!TODO!!!')"
       />
-      <EditBar v-if="editing"/>
+      <EditBar @submit="submit" v-if="editing"/>
     </div>
   </div>
 </template>
@@ -36,6 +36,9 @@
     methods: {
       addTodo () {
         this.editing = true
+      },
+      submit (message) {
+        this.bars.push({title: message})
       }
     },
     components: {
