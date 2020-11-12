@@ -27,6 +27,7 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
+    - [ ] Need a list to init it.
     - [ ] Feat: make the bars have the state in TodoList.
     - [ ] Fear: Can make the todolist be stored as a `.json` file.
     - [ ] Stl : Make the TodoList/AddButton looks better.
@@ -52,6 +53,7 @@ npm run lint
     - [x] Fix : TodoList/EidtBar need to enempty its message after enter.
     - [x] Fear: TodoList/EidtBar need to cannel if it meet a empty input.
   - [ ] DayChart
+  - [ ] Code Editor
 
 ---
 

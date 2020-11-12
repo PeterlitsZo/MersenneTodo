@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="bar">
-      <OKBox />
+    <div class="bar" :class="{OK: state}">
+      <OKBox @bar-OK="setState('OK')" @bar-not-OK="setState('not OK')"/>
       <div class="barName">{{ obj.title }}</div>
       <KillButton />
     </div>
@@ -16,6 +16,16 @@
     name: 'Bar',
     props: {
       obj: Object
+    },
+    data: () => {
+      return {
+        state: false
+      }
+    },
+    methods: {
+      setState (message) {
+        this.state = (message === 'OK')
+      }
     },
     components: {
       KillButton: KillButton,
@@ -35,5 +45,9 @@
   .barName {
     flex: auto;
     margin-left: 0.5em;
+  }
+
+  .OK {
+    color: #888888;
   }
 </style>
