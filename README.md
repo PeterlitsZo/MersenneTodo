@@ -32,11 +32,15 @@ npm run lint
       - [x] Stl: Make the TodoList/AddButton bigger
       - [ ] ...
     - [ ] Stl : Make the TodoList/EditBar looks better.
-      - [x] Stl: Make thhe TodoList/EditBar widen.
+      - [x] Stl: Make the TodoList/EditBar widen.
       - [ ] ...
     - [ ] Fear: Better Bar
       - [ ] has a button to kill self.
+        - [ ] make the icon firstly
+        - [ ] TodoList/Bar/KillButton component
       - [ ] has a checkedbox to gray self.
+        - [ ] make the icon firstly
+        - [ ] TodoList/Bar/OKBox
     - [x] Fear: Add TodoList/Bar's add button.
     - [x] Fear: Add TodoList/EidtBar.
     - [x] Fix : TodoList/EidtBar need to enempty its message after enter.
