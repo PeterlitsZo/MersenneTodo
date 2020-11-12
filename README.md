@@ -36,11 +36,14 @@ npm run lint
       - [ ] ...
     - [ ] Fear: Better Bar
       - [ ] has a button to kill self.
-        - [ ] make the icon firstly
-        - [ ] TodoList/Bar/KillButton component
+        - [x] make the icon firstly
+        - [x] make TodoList/Bar/KillButton be a component
+        - [ ] emit event to Bar.
       - [ ] has a checkedbox to gray self.
-        - [ ] make the icon firstly
-        - [ ] TodoList/Bar/OKBox
+        - [x] make the icon firstly
+        - [x] make TodoList/Bar/OKBox be a component
+        - [ ] make it can change its icon by its state
+        - [ ] emit event to Bar.
     - [x] Fear: Add TodoList/Bar's add button.
     - [x] Fear: Add TodoList/EidtBar.
     - [x] Fix : TodoList/EidtBar need to enempty its message after enter.

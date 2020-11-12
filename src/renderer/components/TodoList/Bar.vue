@@ -1,24 +1,25 @@
 <template>
   <div>
     <div class="bar">
-      <!--<OKBox />-->
-      <div style="flex: none; margin-right: 0.5em">
-        <v-icon name="regular/circle" />
-      </div>
+      <OKBox />
       <div class="barName">{{ obj.title }}</div>
-      <!--<KillButton />-->
-      <div style="flex: none">
-        <v-icon name="times-circle" />
-      </div>
+      <KillButton />
     </div>
   </div>
 </template>
 
 <script>
+  import KillButton from './Bar/KillButton.vue'
+  import OKBox from './Bar/OKBox.vue'
+  
   export default {
     name: 'Bar',
     props: {
       obj: Object
+    },
+    components: {
+      KillButton: KillButton,
+      OKBox: OKBox
     }
   }
 </script>
@@ -33,5 +34,6 @@
 
   .barName {
     flex: auto;
+    margin-left: 0.5em;
   }
 </style>
