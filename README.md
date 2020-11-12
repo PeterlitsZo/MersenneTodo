@@ -36,7 +36,7 @@ npm run lint
       - [x] Stl: Make the TodoList/EditBar widen.
     - [ ] Fear: Better Bar
       - [x] has a button to kill self.
-      - [ ] make the deleteButton only display when the mouse hover it.
+      - [x] make the deleteButton only display when the mouse hover it.
     - [x] Stl : Make the TodoList/AddButton looks better.
     - [x] Feat: make the bars have the state in TodoList.
     - [x] Fear: Add TodoList/Bar's add button.

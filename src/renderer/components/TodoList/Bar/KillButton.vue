@@ -1,6 +1,9 @@
 <template>
-  <div style="barButton" @click="deleteBar">
-    <v-icon name="times-circle" />
+  <div
+    @click="deleteBar"
+    class="barButton" 
+  >
+    <v-icon name="trash" />
   </div>
 </template>
 
@@ -15,8 +18,12 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .barButton {
     flex: none;
+
+    &:hover {
+      color: #f14668;
+    }
   }
 </style>
