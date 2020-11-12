@@ -29,9 +29,11 @@
 
   export default {
     name: 'TodoList',
+    props: {
+      bars: Array
+    },
     data: () => {
       return {
-        bars: [],
         editing: false
       }
     },
@@ -41,7 +43,7 @@
       },
 
       submit (message) {
-        this.bars.push({title: message})
+        this.bars.push({title: message, OK: false})
       },
       dissubmit () {
         this.editing = false

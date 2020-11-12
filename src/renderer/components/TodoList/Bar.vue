@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="bar" :class="{OK: state}">
-      <OKBox @bar-OK="setState('OK')" @bar-not-OK="setState('not OK')"/>
+    <div class="bar" :class="{OK: obj.OK}">
+      <OKBox :OK="obj.OK" @bar-OK="setState('OK')" @bar-not-OK="setState('not OK')"/>
       <div class="barName">{{ obj.title }}</div>
       <KillButton />
     </div>
@@ -17,14 +17,9 @@
     props: {
       obj: Object
     },
-    data: () => {
-      return {
-        state: false
-      }
-    },
     methods: {
       setState (message) {
-        this.state = (message === 'OK')
+        this.obj.OK = (message === 'OK')
       }
     },
     components: {

@@ -27,12 +27,10 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
-    - [ ] Need a list to init it.
-    - [ ] Feat: make the bars have the state in TodoList.
-    - [ ] Fear: Can make the todolist be stored as a `.json` file.
-    - [ ] Stl : Make the TodoList/AddButton looks better.
-      - [x] Stl: Make the TodoList/AddButton bigger
-      - [ ] ...
+    - [ ] Design it to make it looks really good.
+    - [ ] Add hline bettwen two bars.
+    - [ ] Todo as a tree
+    - [ ] Feat: Can make the todolist be stored as a `.json` file.
     - [ ] Stl : Make the TodoList/EditBar looks better.
       - [x] Stl: Make the TodoList/EditBar widen.
       - [ ] ...
@@ -42,16 +40,15 @@ npm run lint
         - [x] make TodoList/Bar/KillButton be a component
         - [ ] emit event to Bar.
         - [ ] Bar need to deal with the event.
-      - [ ] has a checkedbox to gray self.
-        - [x] make the icon firstly
-        - [x] make TodoList/Bar/OKBox be a component
-        - [x] make it can change its icon by its state
-        - [x] emit event to Bar.
-        - [ ] Bar need to deal with the event.
+        - [ ] if OK, add a delete line.
+      - [x] has a checkedbox to gray self.
+    - [x] Stl : Make the TodoList/AddButton looks better.
+    - [x] Feat: make the bars have the state in TodoList.
     - [x] Fear: Add TodoList/Bar's add button.
     - [x] Fear: Add TodoList/EidtBar.
     - [x] Fix : TodoList/EidtBar need to enempty its message after enter.
     - [x] Fear: TodoList/EidtBar need to cannel if it meet a empty input.
+    - [x] Need a list to init it.
   - [ ] DayChart
   - [ ] Code Editor
 
