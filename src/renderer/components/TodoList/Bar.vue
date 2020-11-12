@@ -2,7 +2,7 @@
   <div>
     <div class="bar" :class="{OK: obj.OK}">
       <OKBox :OK="obj.OK" @bar-OK="setState('OK')" @bar-not-OK="setState('not OK')"/>
-      <div class="barName">{{ obj.title }}</div>
+      <div class="barName" :class="{deleteText: obj.OK}">{{ obj.title }}</div>
       <KillButton />
     </div>
   </div>
@@ -44,5 +44,9 @@
 
   .OK {
     color: #888888;
+  }
+
+  .deleteText {
+    text-decoration: line-through;
   }
 </style>

@@ -7,7 +7,7 @@
     </div>
 
     <!-- The list of the TodoList/Bar -->
-    <div>
+    <div class="todolist">
       <Bar
         v-for="bar in bars"
         :obj="bar"
@@ -65,11 +65,29 @@
   .title {
     font-size: 2em;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+  }
+
+  .title::before {
+    background-color: #f2f2f2;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
   }
 
   .titleText {
     flex: auto;
+  }
+
+  .todolist {
+    padding: 20px;
   }
 </style>
