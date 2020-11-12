@@ -1,12 +1,17 @@
 <template>
-  <div style="barButton">
+  <div style="barButton" @click="deleteBar">
     <v-icon name="times-circle" />
   </div>
 </template>
 
 <script>
   export default {
-    name: 'KillButton'
+    name: 'KillButton',
+    methods: {
+      deleteBar () {
+        this.$emit('kill-bar')
+      }
+    }
   }
 </script>
 

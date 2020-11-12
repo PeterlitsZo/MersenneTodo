@@ -35,12 +35,8 @@ npm run lint
       - [ ] ...
       - [x] Stl: Make the TodoList/EditBar widen.
     - [ ] Fear: Better Bar
-      - [ ] has a button to kill self.
-        - [ ] emit event to Bar.
-        - [ ] Bar need to deal with the event.
-        - [x] make the icon firstly
-        - [x] make TodoList/Bar/KillButton be a component
-      - [x] has a checkedbox to gray self.
+      - [x] has a button to kill self.
+      - [ ] make the deleteButton only display when the mouse hover it.
     - [x] Stl : Make the TodoList/AddButton looks better.
     - [x] Feat: make the bars have the state in TodoList.
     - [x] Fear: Add TodoList/Bar's add button.

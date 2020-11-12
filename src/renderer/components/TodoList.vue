@@ -9,9 +9,10 @@
     <!-- The list of the TodoList/Bar -->
     <div class="todolist">
       <Bar
-        v-for="bar in bars"
+        v-for="(bar, index) in bars"
         :obj="bar"
-        @delete-bar="console.log('!!!TODO!!!')"
+        :index="index"
+        @kill-bar="killBar"
       />
       <EditBar
         @submit="submit"
@@ -40,6 +41,10 @@
     methods: {
       addTodo () {
         this.editing = true
+      },
+
+      killBar (index) {
+        this.bars.splice(index, 1)
       },
 
       submit (message) {

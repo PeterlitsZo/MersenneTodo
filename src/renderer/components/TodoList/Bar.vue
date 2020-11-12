@@ -3,7 +3,7 @@
     <div class="bar" :class="{OK: obj.OK}">
       <OKBox :OK="obj.OK" @bar-OK="setState('OK')" @bar-not-OK="setState('not OK')"/>
       <div class="barName" :class="{deleteText: obj.OK}">{{ obj.title }}</div>
-      <KillButton />
+      <KillButton @kill-bar="killSelf" />
     </div>
   </div>
 </template>
@@ -15,11 +15,15 @@
   export default {
     name: 'Bar',
     props: {
-      obj: Object
+      obj: Object,
+      index: Number
     },
     methods: {
       setState (message) {
         this.obj.OK = (message === 'OK')
+      },
+      killSelf () {
+        this.$emit('kill-bar', this.index)
       }
     },
     components: {
