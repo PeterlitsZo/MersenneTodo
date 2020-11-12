@@ -27,6 +27,7 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
+    - [ ] Feat: make the bars have the state in TodoList.
     - [ ] Fear: Can make the todolist be stored as a `.json` file.
     - [ ] Stl : Make the TodoList/AddButton looks better.
       - [x] Stl: Make the TodoList/AddButton bigger
@@ -39,11 +40,13 @@ npm run lint
         - [x] make the icon firstly
         - [x] make TodoList/Bar/KillButton be a component
         - [ ] emit event to Bar.
+        - [ ] Bar need to deal with the event.
       - [ ] has a checkedbox to gray self.
         - [x] make the icon firstly
         - [x] make TodoList/Bar/OKBox be a component
-        - [ ] make it can change its icon by its state
-        - [ ] emit event to Bar.
+        - [x] make it can change its icon by its state
+        - [x] emit event to Bar.
+        - [ ] Bar need to deal with the event.
     - [x] Fear: Add TodoList/Bar's add button.
     - [x] Fear: Add TodoList/EidtBar.
     - [x] Fix : TodoList/EidtBar need to enempty its message after enter.
