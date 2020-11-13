@@ -6,9 +6,19 @@
       @mouseover="hoverBar(true)"
       @mouseout="hoverBar(false)"
     >
-      <OKBox :OK="obj.OK" @bar-OK="setState('OK')" @bar-not-OK="setState('not OK')"/>
+      <OKBox
+        class="icon"
+        :OK="obj.OK"
+        @bar-OK="setState('OK')"
+        @bar-not-OK="setState('not OK')"
+        v-show="!ishovered"
+      />
+      <KillButton
+        class="icon"
+        @kill-bar="killSelf"
+        v-show="ishovered"
+      />
       <div class="barName" :class="{deleteText: obj.OK}">{{ obj.title }}</div>
-      <KillButton @kill-bar="killSelf" v-show="ishovered" />
     </div>
   </div>
 </template>
@@ -52,6 +62,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .icon {
+    flex: none;
+    margin-left: 0.5em;
+    width: 1em;
   }
 
   .barName {
