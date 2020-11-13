@@ -27,6 +27,7 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
+    - [ ] Add the time information
     - [ ] Design it to make it looks really good.
     - [ ] Add hline bettwen two bars.
     - [ ] Todo as a tree

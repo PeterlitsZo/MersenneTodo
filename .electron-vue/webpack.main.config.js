@@ -8,6 +8,8 @@ const webpack = require('webpack')
 
 const MinifyPlugin = require("babel-minify-webpack-plugin")
 
+const MonacoEditorPlugin = require('monaco-editor-webpack-plugin')
+
 let mainConfig = {
   entry: {
     main: path.join(__dirname, '../src/main/index.js')
@@ -49,7 +51,11 @@ let mainConfig = {
     path: path.join(__dirname, '../dist/electron')
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+
+    new MonacoEditorPlugin({
+      languages: ['markdown']
+    })
   ],
   resolve: {
     extensions: ['.js', '.json', '.node']

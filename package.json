@@ -57,6 +57,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "monaco-editor": "^0.21.2",
+    "monaco-editor-webpack-plugin": "^2.0.0",
     "vue": "^2.5.16",
     "vue-awesome": "^4.1.0",
     "vue-electron": "^1.0.6",

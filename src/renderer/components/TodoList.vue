@@ -14,10 +14,14 @@
         :index="index"
         @kill-bar="killBar"
       />
+    </div>
+
+    <!-- The list of the TodoList/EditBar -->
+    <div class="submitBar">
       <EditBar
-        @submit="submit"
-        @dissubmit="dissubmit"
-        v-if="editing"
+          @submit="submit"
+          @dissubmit="dissubmit"
+          v-if="editing"
       />
     </div>
   </div>
@@ -94,5 +98,22 @@
 
   .todolist {
     padding: 20px;
+  }
+
+  .submitBar {
+    padding: 20px;
+    position: relative;
+  }
+
+  .submitBar::before {
+    background-color: #f2f2f2;
+    top: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
   }
 </style>
