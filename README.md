@@ -27,20 +27,13 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
-    - [ ] Make it can deal with MD.
+    - [ ] Make it can deal with MarkDown
     - [ ] Add the time information
     - [ ] Design it to make it looks really good.
     - [ ] Add hline bettwen two bars.
     - [ ] Todo as a tree
     - [ ] Feat: Can make the todolist be stored as a `.json` file.
-    - [ ] Stl : Make the TodoList/EditBar looks better.
-      - [x] Stl: Make the TodoList/EditBar widen.
-      - [ ] Delete the AddButton
-    - [ ] Fear: Better Bar
-      - [x] has a button to kill self.
-      - [x] make the deleteButton only display when the mouse hover it.
-      - [x] make the bin icon be the left.
-      - [ ] click the title to be OK
+    - [x] Fear: Better Bar
     - [x] Stl : Make the TodoList/AddButton looks better.
     - [x] Feat: make the bars have the state in TodoList.
     - [x] Fear: Add TodoList/Bar's add button.

@@ -12,6 +12,7 @@
         :obj="bar"
         :index="index"
         @kill-bar="killBar"
+        @change-state="changeState"
       />
     </div>
 
@@ -39,6 +40,9 @@
     methods: {
       killBar (index) {
         this.bars.splice(index, 1)
+      },
+      changeState (index) {
+        this.bars[index].OK = !this.bars[index].OK
       },
       submit (message) {
         this.bars.push({title: message, OK: false})

@@ -5,12 +5,11 @@
       :class="{OK: obj.OK, hoverd: ishovered && !obj.OK, hoverdOK: ishovered && obj.OK}"
       @mouseover="hoverBar(true)"
       @mouseout="hoverBar(false)"
+      @click="changeState"
     >
       <OKBox
         class="icon"
         :OK="obj.OK"
-        @bar-OK="setState('OK')"
-        @bar-not-OK="setState('not OK')"
         v-show="!ishovered"
       />
       <KillButton
@@ -39,8 +38,8 @@
       }
     },
     methods: {
-      setState (message) {
-        this.obj.OK = (message === 'OK')
+      changeState () {
+        this.$emit('change-state', this.index)
       },
       killSelf () {
         this.$emit('kill-bar', this.index)
