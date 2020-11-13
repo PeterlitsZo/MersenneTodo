@@ -5,7 +5,6 @@
       :class="{OK: obj.OK, hoverd: ishovered && !obj.OK, hoverdOK: ishovered && obj.OK}"
       @mouseover="hoverBar(true)"
       @mouseout="hoverBar(false)"
-      @click="changeState"
     >
       <OKBox
         class="icon"
@@ -17,7 +16,10 @@
         @kill-bar="killSelf"
         v-show="ishovered"
       />
-      <div class="barName" :class="{deleteText: obj.OK}">{{ obj.title }}</div>
+      <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
+        {{ obj.title }}
+      </div>
+        
     </div>
   </div>
 </template>
