@@ -22,7 +22,7 @@
           this.$emit('submit', this.message)
           this.message = ''
         } else {
-          this.$emit('dissubmit')
+          // do nothing...
         }
       },
       update (message) {

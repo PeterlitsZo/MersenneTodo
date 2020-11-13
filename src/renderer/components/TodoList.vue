@@ -3,7 +3,6 @@
     <!-- The title of the TodoList -->
     <div class="title">
       <div class="titleText">TodoList</div>
-      <AddButton @add-todo="addTodo" />
     </div>
 
     <!-- The list of the TodoList/Bar -->
@@ -18,11 +17,7 @@
 
     <!-- The list of the TodoList/EditBar -->
     <div class="submitBar">
-      <EditBar
-          @submit="submit"
-          @dissubmit="dissubmit"
-          v-if="editing"
-      />
+      <EditBar @submit="submit"/>
     </div>
   </div>
 </template>
@@ -39,23 +34,14 @@
     },
     data: () => {
       return {
-        editing: false
       }
     },
     methods: {
-      addTodo () {
-        this.editing = true
-      },
-
       killBar (index) {
         this.bars.splice(index, 1)
       },
-
       submit (message) {
         this.bars.push({title: message, OK: false})
-      },
-      dissubmit () {
-        this.editing = false
       }
     },
     components: {
