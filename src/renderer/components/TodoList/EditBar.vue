@@ -38,7 +38,9 @@
 
 <style>
   .Text {
-    text-size: 1em;
+    font-size: 1em;
+    padding: 0.3em;
+    background: #f2f2f2;
   }
 
   .EditBarInput {

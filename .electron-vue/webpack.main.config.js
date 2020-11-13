@@ -53,9 +53,7 @@ let mainConfig = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
 
-    new MonacoEditorPlugin({
-      languages: ['markdown']
-    })
+    new MonacoEditorPlugin()
   ],
   resolve: {
     extensions: ['.js', '.json', '.node']

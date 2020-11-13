@@ -27,8 +27,12 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
+    - [ ] Make it suppose the MarkDown highlight
     - [ ] Make it can deal with MarkDown
     - [ ] Add the time information
+      - [ ] make it store the the time attr.
+      - [ ] make it get the time auto
+      - [ ] make the time info show
     - [ ] Design it to make it looks really good.
     - [ ] Add hline bettwen two bars.
     - [ ] Todo as a tree

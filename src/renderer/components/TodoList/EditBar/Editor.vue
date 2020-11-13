@@ -60,6 +60,7 @@
 
 <style lang="scss" scoped>
   .editor {
+    box-sizing: border-box;
     width: 100%;
     height: 5em;
   }
