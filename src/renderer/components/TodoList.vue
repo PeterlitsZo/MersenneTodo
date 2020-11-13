@@ -46,7 +46,7 @@
         this.bars[index].OK = !this.bars[index].OK
       },
       submit (message) {
-        this.bars.push({title: message, OK: false})
+        this.bars.push({title: message, OK: false, time: new Date()})
       }
     },
     components: {

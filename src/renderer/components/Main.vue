@@ -11,7 +11,7 @@
     name: 'Main',
     data: () => {
       return {
-        bars: [{title: 'chilk the [+] token to insert a new TODO', OK: true}]
+        bars: []
       }
     },
     components: {

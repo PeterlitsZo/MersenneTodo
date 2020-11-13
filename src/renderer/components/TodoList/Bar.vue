@@ -17,9 +17,8 @@
         v-show="ishovered"
       />
       <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
-        {{ obj.title }}
+        {{ obj.title }} <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
       </div>
-        
     </div>
   </div>
 </template>
@@ -75,6 +74,11 @@
   .barName {
     flex: auto;
     margin-left: 0.5em;
+  }
+
+  .time {
+    font-size: 0.7em;
+    float: right;
   }
 
   .OK {

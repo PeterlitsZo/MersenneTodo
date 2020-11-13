@@ -27,15 +27,13 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
+    - [ ] Tool kits for Bars
     - [ ] Make it suppose the MarkDown highlight
     - [ ] Make it can deal with MarkDown
-    - [ ] Add the time information
-      - [ ] make it store the the time attr.
-      - [ ] make it get the time auto
-      - [ ] make the time info show
     - [ ] Design it to make it looks really good.
     - [ ] Todo as a tree
     - [ ] Feat: Can make the todolist be stored as a `.json` file.
+    - [x] Add the time information
     - [x] Add hline bettwen two bars.
     - [x] Fear: Better Bar
     - [x] Stl : Make the TodoList/AddButton looks better.
