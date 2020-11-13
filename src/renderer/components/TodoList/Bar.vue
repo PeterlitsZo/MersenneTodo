@@ -61,6 +61,7 @@
   .bar {
     font-size: 1.5em;
     display: flex;
+    padding: 0.3em;
     justify-content: center;
     align-items: center;
   }

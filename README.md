@@ -34,9 +34,9 @@ npm run lint
       - [ ] make it get the time auto
       - [ ] make the time info show
     - [ ] Design it to make it looks really good.
-    - [ ] Add hline bettwen two bars.
     - [ ] Todo as a tree
     - [ ] Feat: Can make the todolist be stored as a `.json` file.
+    - [x] Add hline bettwen two bars.
     - [x] Fear: Better Bar
     - [x] Stl : Make the TodoList/AddButton looks better.
     - [x] Feat: make the bars have the state in TodoList.

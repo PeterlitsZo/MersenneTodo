@@ -8,6 +8,7 @@
     <!-- The list of the TodoList/Bar -->
     <div class="todolist">
       <Bar
+        class="Bar"
         v-for="(bar, index) in bars"
         :obj="bar"
         :index="index"
@@ -88,6 +89,22 @@
 
   .todolist {
     padding: 20px;
+  }
+
+  .Bar {
+    position: relative;
+  }
+
+  .Bar + .Bar::before {
+    background-color: #f2f2f2;
+    position: absolute;
+    button: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    opacity: 1;
+    pointer-events: none;
+    right: 0;
   }
 
   .submitBar {
