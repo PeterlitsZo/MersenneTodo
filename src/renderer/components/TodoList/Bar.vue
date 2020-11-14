@@ -74,11 +74,14 @@
   .barName {
     flex: auto;
     margin-left: 0.5em;
+    height: 1em;
   }
 
   .time {
-    font-size: 0.7em;
+    font-size: 0.6em;
     float: right;
+    padding: 0.2em;
+    background: #f2f2f2;
   }
 
   .OK {
