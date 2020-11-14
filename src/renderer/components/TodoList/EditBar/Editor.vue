@@ -32,16 +32,9 @@
           enabled: false
         }
       })
-      // When change the content, the content will emit by event `change`
-      this.editor.onDidChangeModelContent(e => {
-        console.log('change')
-        const content = this.editor.getValue()
-        this.$emit('change', content)
-      })
       // Set the command for edit to enter the message
       this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-        console.log('enter')
-        this.$emit('enter')
+        this.$emit('enter', this.editor.getValue())
         this.editor.setValue('')
       })
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="editor">
     <div class="Text">Text TODO, enter <kbd>Ctrl+Enter</kbd> to submit:</div>
-    <CodeEditor class="EditBarInput" @change="update" @enter="submit" :initData="''" />
+    <CodeEditor class="EditBarInput" @enter="submit" :initData="''" />
   </div>
 </template>
 
@@ -10,24 +10,13 @@
 
   export default {
     name: 'EditBar',
-    data: () => {
-      return {
-        message: ''
-      }
-    },
     methods: {
-      submit () {
-        if (this.message) {
-          console.log('submit: ', this.message)
-          this.$emit('submit', this.message)
-          this.message = ''
+      submit (message) {
+        if (message) {
+          this.$emit('submit', message)
         } else {
           // do nothing...
         }
-      },
-      update (message) {
-        console.log('change: ', message)
-        this.message = message
       }
     },
     components: {

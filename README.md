@@ -27,6 +27,7 @@ npm run lint
 
 - [ ] Root
   - [ ] TodoList
+    - [ ] make the Bar's OK area be bigger
     - [ ] Tool kits for Bars
     - [ ] Make it suppose the MarkDown highlight
     - [ ] Make it can deal with MarkDown
