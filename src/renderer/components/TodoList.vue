@@ -34,19 +34,21 @@
     props: {
       bars: Array
     },
-    data: () => {
-      return {
-      }
-    },
     methods: {
       killBar (index) {
-        this.bars.splice(index, 1)
+        var barArray = this.bars.slice()
+        barArray.splice(index, 1)
+        this.$emit('update', barArray)
       },
       changeState (index) {
-        this.bars[index].OK = !this.bars[index].OK
+        var barArray = this.bars.slice()
+        barArray[index].OK = !barArray[index].OK
+        this.$emit('update', barArray)
       },
       submit (message) {
-        this.bars.push({title: message, OK: false, time: new Date()})
+        var barArray = this.bars.slice()
+        barArray.push({title: message, OK: false, time: new Date()})
+        this.$emit('update', barArray)
       }
     },
     components: {

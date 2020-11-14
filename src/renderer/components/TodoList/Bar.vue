@@ -74,7 +74,6 @@
   .barName {
     flex: auto;
     margin-left: 0.5em;
-    height: 1em;
   }
 
   .time {
