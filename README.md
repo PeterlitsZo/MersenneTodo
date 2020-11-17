@@ -12,6 +12,9 @@ for download.
 Before build/run it, you should download `yarn` and download this project's
 dependency:
 
+``` shell
+sudo apt install yarn
+yarn
 ```
 
 ### Builded for Windows and Linux
