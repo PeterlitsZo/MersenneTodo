@@ -33,5 +33,27 @@ Run script in shell:
 yarn electron:serve
 ```
 
+## Todo
+
+This is a todo list for this project:
+
+- [ ] Root
+  - [ ] TodoList
+    - [ ] make the Bar's OK area be bigger
+    - [ ] Tool kits for Bars
+    - [ ] Make it suppose the MarkDown highlight
+    - [ ] Make it can deal with MarkDown
+    - [ ] Todo as a tree
+    - [x] Fix : fix that it cannot build (bacause webpack, i guess).
+    - [x] Feat: Use `yarn` but not `npm`
+    - [x] Feat: Can make the todolist be stored as a `.json` file.
+    - [x] Design it to make it looks really good.
+    - [x] Add the time information
+    - [x] Add hline bettwen two bars.
+    - [x] ...
+  - [ ] DayChart
+  - [ ] Code Editor
+
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
