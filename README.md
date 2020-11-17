@@ -38,12 +38,14 @@ yarn electron:serve
 This is a todo list for this project:
 
 - [ ] Root
+  - [ ] Nav
   - [ ] TodoList
-    - [ ] make the Bar's OK area be bigger
-    - [ ] Tool kits for Bars
-    - [ ] Make it suppose the MarkDown highlight
-    - [ ] Make it can deal with MarkDown
-    - [ ] Todo as a tree
+    - [ ] Feat: history
+    - [ ] Feat: Tool kits for Bars
+    - [ ] Feat: Make it suppose the MarkDown highlight
+    - [ ] Feat: Make it can deal with MarkDown
+    - [ ] Feat: Todo as a tree
+    - [x] Feat: make the Bar's OK area be bigger
     - [x] Fix : fix that it cannot build (bacause webpack, i guess).
     - [x] Feat: Use `yarn` but not `npm`
     - [x] Feat: Can make the todolist be stored as a `.json` file.
@@ -53,7 +55,9 @@ This is a todo list for this project:
     - [x] ...
   - [ ] DayChart
   - [ ] Code Editor
-
+  - [ ] Info
+    - [ ] Info about github address, issue address
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

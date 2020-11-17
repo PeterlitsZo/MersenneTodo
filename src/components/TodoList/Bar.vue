@@ -60,7 +60,6 @@
   .bar {
     font-size: 1.5em;
     display: flex;
-    padding: 0.3em;
     justify-content: center;
     align-items: center;
   }
@@ -73,7 +72,12 @@
 
   .barName {
     flex: auto;
+    padding: 0.3em;
     margin-left: 0.5em;
+  }
+
+  .barName:hover {
+    background: #f2f2f2;
   }
 
   .time {
