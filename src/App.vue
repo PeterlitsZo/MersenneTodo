@@ -1,22 +1,42 @@
 <template>
   <div id="app">
-    <router-view/>
+    <Nav id="nav"/>
+    <router-view id="router-view" />
   </div>
 </template>
 
+<script>
+  import Nav from './components/nav.vue'
+
+  export default {
+    components: {
+      Nav
+    }
+  }
+</script>
+
 <style>
-#app {
-  font-family: Georgia;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  #app {
+    font-family: Georgia;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  margin: 0;
-}
+  #nav {
+    position: fixed;
+    width: 3.5em;
+  }
 
-kbd {
-  font-family: monospace;
-}
+  #router-view {
+    margin-left: 3.5em;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  kbd {
+    font-family: monospace;
+  }
 
 </style>
