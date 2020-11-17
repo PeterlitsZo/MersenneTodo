@@ -1,23 +1,33 @@
 # mersenne-todo
 
-## Project setup
-```
-yarn install
+> A nice planner. Builded on `electron` and `vue`.
+
+## run by bin file
+
+Go to [here](https://github.com/PeterlitsZo/MersenneTodo/releases/tag/v0.0.2-alpha)
+for download.
+
+## build/run by source
+
+Before build/run it, you should download `yarn` and download this project's
+dependency:
+
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+### Builded for Windows and Linux
+
+Run script in shell:
+
+``` shell
+yarn electron:allbuild
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Run in electron application
 
-### Lints and fixes files
-```
-yarn lint
+Run script in shell:
+
+``` shell
+yarn electron:serve
 ```
 
 ### Customize configuration
