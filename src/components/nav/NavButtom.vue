@@ -1,10 +1,14 @@
 <template>
-  <div class="NavButtom">
-    <router-link class="NavText" :to="{ name: to, params: params}">
-      <div v-if="icon"><v-icon scale="2" :name="icon" /></div>
-      <div v-else>{{ to }}</div>
-    </router-link>
-  </div>
+  <router-link
+    :to="{ name: to, params: params}"
+  >
+    <div class="NavButtom" :class="{activation: isactivation}">
+      <div class="NavText">
+        <template v-if="icon"><v-icon scale="1.4" :name="icon" /></template>
+        <template v-else>{{ to }}</template>
+      </div>
+    </div>
+  </router-link>
 </template>
 
 <script>
@@ -14,24 +18,48 @@
       to: {type: String, required: true},
       params: {type: Object, default: function() {return {}} /*Empty object*/ },
       icon: {type: String, default: ""}
+    },
+    computed: {
+      isactivation () {
+        console.log(this.$route.name, this.to)
+        return this.$route.name == this.to
+      }
     }
   }
 </script>
 
-<style>
+<style lang="scss">
   .NavButtom {
-    height: 3em;
-    margin: 1em 0 1em auto;
-    background: #f2f2f2;
+    height: 2.5em;
+    margin: 0.5em 0 0.5em auto;
     position: relative;
-  }
 
-  .NavButtom:hover {
-    background: #e2e2e2;
+    &[class~="activation"] {
+      .NavText {
+        color: #1F3550;
+      }
+      &:hover{
+        background: #e2e2e2;
+      }
+      &:not(:hover) {
+        background: #f2f2f2;
+      }
+    }
+
+    &:not([class~="activation"]) {
+      .NavText {
+        color: #e2e2e2;
+      }
+      &:hover {
+        background: #1F3550;
+      }
+      &:not(:hover) {
+        background: #0F2540;
+      }
+    }
   }
 
   .NavText {
-    color: black;
     position: absolute;
     top: 50%;
     left: 50%;

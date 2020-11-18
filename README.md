@@ -39,8 +39,9 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Nav
-    - [ ] Feat: Add info link
+    - [ ] Feat: Unloading: background: none;
     - [ ] Fix : nav(build-in name) -> Nav
+    - [x] Feat: Add info link
   - [ ] TodoList
     - [ ] Feat: Make the editor at the end
     - [ ] Feat: history
@@ -57,7 +58,8 @@ This is a todo list for this project:
   - [ ] DayChart
   - [ ] Code Editor
   - [ ] Info
-    - [ ] Info about github address, issue address
+    - [x] Feat: Info about github address, issue address
+    - [ ] Feat: make Info looks great
 
 ### Customize configuration
 
