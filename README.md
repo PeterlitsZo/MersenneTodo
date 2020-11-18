@@ -2,6 +2,13 @@
 
 > A nice planner. Builded on `electron` and `vue`.
 
+## Screenshot
+
+<div style="text-align:center;"><img
+  src="./screenshot/mersenne-todo.png"
+  style="width=68%;"
+></div>
+
 ## run by bin file
 
 Go to [here](https://github.com/PeterlitsZo/MersenneTodo/releases/tag/v0.0.2-alpha)
@@ -62,6 +69,7 @@ This is a todo list for this project:
     - [x] Feat: Info about github address, issue address
     - [ ] Feat: make Info looks great
   - [ ] Others
+    - [ ] Fix : move the default json file be other place.
     - [ ] Feat: remove the bars of the application
     - [ ] Feat: add a icon
 
