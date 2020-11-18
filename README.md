@@ -39,8 +39,8 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Nav
-    - [ ] Feat: Unloading: background: none;
     - [ ] Fix : nav(build-in name) -> Nav
+    - [x] Feat: Unloading: background: none;
     - [x] Feat: Add info link
   - [ ] TodoList
     - [ ] Feat: Make the editor at the end

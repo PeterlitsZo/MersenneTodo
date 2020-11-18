@@ -25,7 +25,7 @@
     name: 'Main',
     data: () => {
       return {
-        bars: normalBars([{title: 'hello'}])
+        bars: []
       }
     },
     methods: {
