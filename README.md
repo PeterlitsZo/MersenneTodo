@@ -4,9 +4,9 @@
 
 ## Screenshot
 
-<div style="text-align:center;"><img
+<p align="center"><img
   src="./screenshot/mersenne-todo.png"
-  style="width=68%;"
+  width="68%"
 ></div>
 
 ## run by bin file
