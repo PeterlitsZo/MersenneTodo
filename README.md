@@ -39,7 +39,10 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Nav
+    - [ ] Feat: Add info link
+    - [ ] Fix : nav(build-in name) -> Nav
   - [ ] TodoList
+    - [ ] Feat: Make the editor at the end
     - [ ] Feat: history
     - [ ] Feat: Tool kits for Bars
     - [ ] Feat: Make it suppose the MarkDown highlight
@@ -50,8 +53,6 @@ This is a todo list for this project:
     - [x] Feat: Use `yarn` but not `npm`
     - [x] Feat: Can make the todolist be stored as a `.json` file.
     - [x] Design it to make it looks really good.
-    - [x] Add the time information
-    - [x] Add hline bettwen two bars.
     - [x] ...
   - [ ] DayChart
   - [ ] Code Editor
