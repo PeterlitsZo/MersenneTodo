@@ -46,6 +46,7 @@ This is a todo list for this project:
     - [ ] Feat: Make the editor at the end
     - [ ] Feat: history
     - [ ] Feat: Tool kits for Bars
+      - [ ] Feat: defined as a component
     - [ ] Feat: Make it suppose the MarkDown highlight
     - [ ] Feat: Make it can deal with MarkDown
     - [ ] Feat: Todo as a tree
@@ -60,6 +61,9 @@ This is a todo list for this project:
   - [ ] Info
     - [x] Feat: Info about github address, issue address
     - [ ] Feat: make Info looks great
+  - [ ] Others
+    - [ ] Feat: remove the bars of the application
+    - [ ] Feat: add a icon
 
 ### Customize configuration
 

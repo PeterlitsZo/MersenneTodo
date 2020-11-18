@@ -3,6 +3,8 @@
     <div
       class="bar"
       :class="{OK: obj.OK}"
+      @mouseover="ishovered=true"
+      @mouseout="ishovered=false"
     >
       <OKBox
         class="icon"
@@ -30,6 +32,11 @@
     props: {
       obj: Object,
       index: Number
+    },
+    data () {
+      return {
+        ishovered: false
+      }
     },
     methods: {
       changeState () {
@@ -86,10 +93,10 @@
       &:hover {
         background: #f2f2f2;
       }
-
-      .deleteText {
+      &.deleteText {
         text-decoration: line-through;
       }
+
       .time {
         font-size: 0.6em;
         float: right;
