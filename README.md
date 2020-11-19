@@ -46,10 +46,12 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Nav
-    - [ ] Fix : nav(build-in name) -> Nav
+    - [ ] Feat: Use flex display
+    - [x] Fix : nav(build-in name) -> Nav
     - [x] Feat: Unloading: background: none;
     - [x] Feat: Add info link
   - [ ] TodoList
+    - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
     - [ ] Feat: Tool kits for Bars
       - [ ] Feat: defined as a component

@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Nav id="nav"/>
+    <Navigation id="navigation"/>
     <router-view id="router-view" />
   </div>
 </template>
 
 <script>
-  import Nav from './components/nav.vue'
+  import Navigation from './components/Navigation.vue'
 
   export default {
     components: {
-      Nav
+      Navigation
     }
   }
 </script>
@@ -24,7 +24,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  #nav {
+  #navigation {
     position: fixed;
     width: 3.5em;
   }
