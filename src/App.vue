@@ -17,6 +17,8 @@
 
 <style>
   #app {
+    height: 100%;
+    overflow: hidden;
     font-family: Georgia;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -32,7 +34,12 @@
   }
   
   body {
+    height: 100%;
     margin: 0;
+  }
+
+  html {
+    height: 100%;
   }
   
   kbd {

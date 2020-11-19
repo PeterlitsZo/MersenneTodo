@@ -1,5 +1,5 @@
 <template>
-  <div class="noselect">
+  <div class="noselect TodoList">
     <!-- The title of the TodoList -->
     <div class="title">
       <div class="titleText">TodoList</div>
@@ -58,70 +58,76 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .noselect {
     user-select: none;
   }
 
-  .title {
-    font-size: 2em;
+  .TodoList {
     display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  .title {
     position: relative;
+    display: flex;
+    padding: 20px;
+    font-size: 2em;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-  }
+    &::before {
+      position: absolute;
+      background-color: #f2f2f2;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      pointer-events: none;
+    }
 
-  .title::before {
-    background-color: #f2f2f2;
-    bottom: 0;
-    content: '';
-    height: 1px;
-    left: 0;
-    opacity: 1;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-  }
-
-  .titleText {
-    flex: auto;
+    .titleText {
+      flex: auto;
+    }
   }
 
   .todolist {
     padding: 20px;
-  }
+    flex-grow: 1;
+    overflow: auto;
+    .Bar {
+      position: relative;
 
-  .Bar {
-    position: relative;
-  }
-
-  .Bar + .Bar::before {
-    background-color: #f2f2f2;
-    position: absolute;
-    button: 0;
-    content: '';
-    height: 1px;
-    left: 0;
-    opacity: 1;
-    pointer-events: none;
-    right: 0;
+      + .Bar::before {
+        background-color: #f2f2f2;
+        position: absolute;
+        button: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        opacity: 1;
+        pointer-events: none;
+        right: 0;
+      }
+    }
   }
 
   .submitBar {
     padding: 20px;
     position: relative;
+    &::before {
+      background-color: #f2f2f2;
+      top: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      opacity: 1;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+    }
   }
 
-  .submitBar::before {
-    background-color: #f2f2f2;
-    top: 0;
-    content: '';
-    height: 1px;
-    left: 0;
-    opacity: 1;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-  }
 </style>
