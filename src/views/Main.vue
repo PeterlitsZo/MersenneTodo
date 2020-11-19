@@ -5,6 +5,7 @@
 <script>
   import TodoList from '../components/TodoList.vue'
 
+  import { remote } from 'electron'
   import fs from 'fs'
 
   function normalBars (bars) {
@@ -25,13 +26,14 @@
     name: 'Main',
     data: () => {
       return {
-        bars: normalBars([{title: 'hello'}])
+        bars: normalBars([{title: 'hello'}]),
+        datafilepath: remote.app.getPath('userData') + '/mersennetodo.json'
       }
     },
     methods: {
       update (bars) {
         this.bars = bars
-        fs.writeFile('.mersennetodo.json', JSON.stringify(this.bars), (err) => {
+        fs.writeFile(this.datafilepath, JSON.stringify(this.bars), (err) => {
           if (err) {
             console.error('Cannot write to .mersennetodo.json!')
           }
@@ -39,12 +41,13 @@
       }
     },
     created () {
-      console.log('mounted..., this.bars = ', this.bars)
-      fs.readFile('.mersennetodo.json', (err, data) => {
+      console.log('mounted..., this.datafilepath = ', this.datafilepath)
+      fs.readFile(this.datafilepath, (err, data) => {
         if (err) {
           this.update(normalBars([
             {title: '1. Click on my text to set my state (OK/Todo)'},
-            {title: '2. Want to set a new Todo? Edit at below editor, then press `Ctrl+Enter`'},
+            {title: ['2. Want to set a new Todo? Edit at below editor, then press',
+              ' `Ctrl+Enter`'].join('')},
             {title: ['3. A Useless Todo bar? move on me and you can find a bin ',
               'icon, then click on the my delete bin icon'].join('')}
           ]))
