@@ -1,9 +1,7 @@
 <template>
   <div class="noselect TodoList">
     <!-- The title of the TodoList -->
-    <div class="title">
-      <div class="titleText">TodoList</div>
-    </div>
+    <Title class="title">TodoList</Title>
 
     <!-- The list of the TodoList/Bar -->
     <div class="todolist">
@@ -19,15 +17,15 @@
     </div>
 
     <!-- The list of the TodoList/EditBar -->
-    <div class="submitBar">
-      <EditBar @submit="submit"/>
-    </div>
+    <EndTitle><EditBar @submit="submit"/></EndTitle>
   </div>
 </template>
 
 <script>
   import Bar from './TodoList/Bar.vue'
   import EditBar from './TodoList/EditBar.vue'
+  import Title from './Comman/Title.vue'
+  import EndTitle from './Comman/EndTitle.vue'
 
   export default {
     name: 'TodoList',
@@ -52,8 +50,10 @@
       }
     },
     components: {
-      'Bar': Bar,
-      'EditBar': EditBar,
+      Bar,
+      EditBar,
+      Title,
+      EndTitle
     }
   }
 </script>
@@ -63,34 +63,14 @@
     user-select: none;
   }
 
+  .title {
+    font-size: 2em;
+  }
+
   .TodoList {
     display: flex;
     flex-flow: column;
     height: 100%;
-  }
-
-  .title {
-    position: relative;
-    display: flex;
-    padding: 20px;
-    font-size: 2em;
-    justify-content: center;
-    align-items: center;
-    &::before {
-      position: absolute;
-      background-color: #f2f2f2;
-      bottom: 0;
-      content: '';
-      height: 1px;
-      left: 0;
-      right: 0;
-      opacity: 1;
-      pointer-events: none;
-    }
-
-    .titleText {
-      flex: auto;
-    }
   }
 
   .todolist {
@@ -103,31 +83,14 @@
       + .Bar::before {
         background-color: #f2f2f2;
         position: absolute;
-        button: 0;
         content: '';
         height: 1px;
+        top: 0;
         left: 0;
+        right: 0;
         opacity: 1;
         pointer-events: none;
-        right: 0;
       }
     }
   }
-
-  .submitBar {
-    padding: 20px;
-    position: relative;
-    &::before {
-      background-color: #f2f2f2;
-      top: 0;
-      content: '';
-      height: 1px;
-      left: 0;
-      opacity: 1;
-      pointer-events: none;
-      position: absolute;
-      right: 0;
-    }
-  }
-
 </style>
