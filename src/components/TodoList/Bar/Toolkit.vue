@@ -1,7 +1,12 @@
 <template>
   <div>
     <!-- State: Clicked -->
-    <div v-if="clicked" class="icon KillButton" @click="deleteBar">
+    <div
+      v-if="clicked"
+      class="icon KillButton"
+      @click="deleteBar"
+      v-click-outside="unClick"
+    >
       <Icon name="trash" />
     </div>
 
@@ -42,6 +47,9 @@
       deleteBar () {
         console.log('Killing')
         this.$emit('kill-bar')
+      },
+      unClick () {
+        this.clicked = false
       }
     },
     components: {
