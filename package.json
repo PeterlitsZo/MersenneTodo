@@ -1,8 +1,8 @@
 {
   "name": "mersenne-todo",
-  "version": "0.0.3",
-  "author": "Peterlits Zo",
-  "email": "peterlitszo@outlook.com",
+  "version": "0.0.4",
+  "author": "Mersenne Prime Foundry",
+  "email": "(main developer) peterlitszo@outlook.com",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
