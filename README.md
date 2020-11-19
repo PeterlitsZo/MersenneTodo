@@ -45,6 +45,8 @@ yarn electron:serve
 This is a todo list for this project:
 
 - [ ] Root
+  - [ ] Comman
+    - [ ] Feat: title component
   - [ ] Nav
     - [ ] Feat: Use flex display
     - [x] Fix : nav(build-in name) -> Nav
@@ -68,8 +70,11 @@ This is a todo list for this project:
   - [ ] Code Editor
   - [ ] Info
     - [ ] Feat: make Info looks great
+      - [ ] ...
+      - [x] Add a title
     - [x] Feat: Info about github address, issue address
   - [ ] Others
+    - [ ] Feat: Use Vuex
     - [ ] Feat: remove the bars of the application
     - [ ] Feat: add a icon of the application
     - [x] Fix : move the default json file be other place.

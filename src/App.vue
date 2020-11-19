@@ -17,6 +17,7 @@
 
 <style>
   #app {
+    display: flex;
     height: 100%;
     overflow: hidden;
     font-family: Georgia;
@@ -24,13 +25,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  #navigation {
-    position: fixed;
-    width: 3.5em;
-  }
-
   #router-view {
-    margin-left: 3.5em;
+    flex-grow: 1;
   }
   
   body {
