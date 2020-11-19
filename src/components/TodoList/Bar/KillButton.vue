@@ -1,27 +1,20 @@
 <template>
-  <div
-    @click="deleteBar"
-    class="barButton" 
-  >
-    <v-icon name="trash" />
-  </div>
+  <Icon name="trash" class="barButton" />
 </template>
 
 <script>
+  import Icon from '../../Comman/Icon.vue'
+
   export default {
     name: 'KillButton',
-    methods: {
-      deleteBar () {
-        this.$emit('kill-bar')
-      }
+    components: {
+      Icon
     }
   }
 </script>
 
 <style lang="scss">
   .barButton {
-    flex: none;
-
     &:hover {
       color: #f14668;
     }

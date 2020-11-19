@@ -6,15 +6,11 @@
       @mouseover="ishovered=true"
       @mouseout="ishovered=false"
     >
-      <OKBox
-        class="icon"
-        :OK="obj.OK"
-        v-show="!ishovered"
-      />
-      <KillButton
-        class="icon"
+      <Toolkit
+        class="toolkit"
+        :state="obj.OK ? 'OK' : 'not OK'"
+        :ishovered="ishovered"
         @kill-bar="killSelf"
-        v-show="ishovered"
       />
       <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
         {{ obj.title }} <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
@@ -24,8 +20,7 @@
 </template>
 
 <script>
-  import KillButton from './Bar/KillButton.vue'
-  import OKBox from './Bar/OKBox.vue'
+  import Toolkit from './Bar/Toolkit.vue'
   
   export default {
     name: 'Bar',
@@ -43,12 +38,12 @@
         this.$emit('change-state', this.index)
       },
       killSelf () {
+        console.log('Killing')
         this.$emit('kill-bar', this.index)
       }
     },
     components: {
-      KillButton: KillButton,
-      OKBox: OKBox
+      Toolkit
     }
   }
 </script>
@@ -56,7 +51,8 @@
 <style lang="scss">
   .bar {
     font-size: 1.5em;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     justify-content: center;
     align-items: center;
 
@@ -78,17 +74,16 @@
     }
 
     /* Icon at the heading of the bar */
-    .icon {
-      flex: none;
-      margin-left: 0.5em;
-      width: 1em;
+    .toolkit {
+      height: 100%;
+      &:hover {
+        background: #f2f2f2;
+      }
     }
 
     /* BarName, the main part of the bar */
     .barName {
-      flex: auto;
       padding: 0.3em;
-      margin-left: 0.5em;
 
       &:hover {
         background: #f2f2f2;

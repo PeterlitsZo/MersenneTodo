@@ -9,10 +9,10 @@
   width="68%"
 ></div>
 
-## run by bin file
+## Download
 
-Go to [here](https://github.com/PeterlitsZo/MersenneTodo/releases/tag/v0.0.2-alpha)
-for download.
+Go to [release page](https://github.com/PeterlitsZo/MersenneTodo/releases/tag/v0.0.2-alpha)
+to download the lastest MersenneTodo.
 
 ## build/run by source
 
@@ -46,7 +46,7 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Comman
-    - [ ] Feat: title component
+    - [x] Feat: title component
   - [ ] Nav
     - [ ] Feat: Use flex display
     - [x] Fix : nav(build-in name) -> Nav
@@ -74,6 +74,7 @@ This is a todo list for this project:
       - [x] Add a title
     - [x] Feat: Info about github address, issue address
   - [ ] Others
+    - [ ] Feat: bar state: OK / not OK / list
     - [ ] Feat: Use Vuex
     - [ ] Feat: remove the bars of the application
     - [ ] Feat: add a icon of the application
