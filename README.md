@@ -46,17 +46,18 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Comman
+    - [ ] ...
+    - [x] Feat: icon component
     - [x] Feat: title component
-  - [ ] Nav
-    - [ ] Feat: Use flex display
-    - [x] Fix : nav(build-in name) -> Nav
-    - [x] Feat: Unloading: background: none;
-    - [x] Feat: Add info link
+  - [x] Nav
   - [ ] TodoList
+    - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
     - [ ] Feat: Tool kits for Bars
-      - [ ] Feat: defined as a component
+      - [x] Feat: defined as a component
+      - [x] Feat: can be clicked.
+      - [ ] Feat: with plus button
     - [ ] Feat: Make it suppose the MarkDown highlight
     - [ ] Feat: Make it can deal with MarkDown
     - [ ] Feat: Todo as a tree
@@ -74,9 +75,10 @@ This is a todo list for this project:
       - [x] Add a title
     - [x] Feat: Info about github address, issue address
   - [ ] Others
+    - [ ] Fix : flex looks bad.
     - [ ] Feat: bar state: OK / not OK / list
     - [ ] Feat: Use Vuex
-    - [ ] Feat: remove the bars of the application
+    - [ ] Feat: remove the title bars of the application
     - [ ] Feat: add a icon of the application
     - [x] Fix : move the default json file be other place.
 

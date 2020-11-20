@@ -15,29 +15,33 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   #app {
-    display: flex;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     font-family: Georgia;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
 
-  #router-view {
-    flex-grow: 1;
+    $nav-width: 3.5em;
+
+    #navigation {
+      position: fixed;
+      height: 100%;
+      width: $nav-width;
+    }
+
+    #router-view {
+      margin-left: $nav-width;
+    }
   }
   
-  body {
+  body, html {
     height: 100%;
     margin: 0;
   }
 
-  html {
-    height: 100%;
-  }
-  
   kbd {
     font-family: monospace;
   }
