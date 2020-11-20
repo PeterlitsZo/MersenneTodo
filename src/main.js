@@ -13,16 +13,25 @@ Vue.component('v-icon', Icon)
 // stack-overflow: https://stackoverflow.com/a/42389266/13031497
 Vue.directive('click-outside', {
   bind: function (el, binding, vnode) {
+    console.log('Binding')
     el.clickOutsideEvent = function (event) {
+      console.log(el, event.target, el==event.target, el.contains(event.target))
       // here I check that click was outside the el and his children
       if (!(el == event.target || el.contains(event.target))) {
         // and if it did, call method provided in attribute value
         vnode.context[binding.expression](event);
       }
     };
-    document.body.addEventListener('click', el.clickOutsideEvent)
+    // ugly, but fix the bug:
+    // 2020/11/20 - Peterlits Zo
+    // When I click the the ellipsis-h buttom, it do not change anything.
+    // I find that itself call this function.
+    setTimeout(() => {
+        document.body.addEventListener('click', el.clickOutsideEvent)
+    }, 100)
   },
   unbind: function (el) {
+    console.log('UnBinding')
     document.body.removeEventListener('click', el.clickOutsideEvent)
   },
 })

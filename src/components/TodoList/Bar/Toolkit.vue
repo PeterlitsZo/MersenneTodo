@@ -1,24 +1,24 @@
 <template>
   <div>
     <!-- State: Clicked -->
-    <div
-      v-if="clicked"
-      class="icon KillButton"
-      @click="deleteBar"
-      v-click-outside="unClick"
-    >
-      <Icon name="trash" />
+    <div v-if="clicked" key="toolkit" class="fullHeight" v-click-outside="unClick">
+      <div class="icon KillButton" @click="deleteBar">
+        <Icon class="icon" name="trash" />
+      </div>
+      <div class="icon">
+        <Icon name="plus" />
+      </div>
     </div>
 
     <!-- State: Unclicked -->
-    <div v-else class="icon" @click="clicked=true">
-      <template v-if="ishovered">
+    <div v-else key="toolkitinfo" class="fullHeight">
+      <div v-if="ishovered" class="icon" @click="setClick">
         <Icon name="ellipsis-h"/>
-      </template>
-      <template v-else>
+      </div>
+      <div v-else class="icon">
         <Icon v-if="state == 'OK'" name="check-circle" />
         <Icon v-else name="regular/circle" />
-      </template>
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +49,12 @@
         this.$emit('kill-bar')
       },
       unClick () {
+        console.log('unClicking')
         this.clicked = false
+      },
+      setClick () {
+        console.log('Clicking')
+        this.clicked = true
       }
     },
     components: {
@@ -59,18 +64,22 @@
 </script>
 
 <style lang="scss">
-  .icon {
-    width: 2em;
+  .fullHeight {
     height: 100%;
+    display: flex;
 
-    &:hover {
-      background: #f2f2f2;
+    .icon {
+      width: 2em;
+      height: 100%;
+
+      &:hover {
+        background: #f2f2f2;
+
+        &[class~=KillButton] {
+          color: #f14668;
+        }
+      }
     }
   }
 
-  .KillButton {
-    &:hover {
-      color: #f14668;
-    }
-  }
 </style>

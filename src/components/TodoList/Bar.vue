@@ -76,9 +76,6 @@
     /* Icon at the heading of the bar */
     .toolkit {
       height: 100%;
-      &:hover {
-        background: #f2f2f2;
-      }
     }
 
     /* BarName, the main part of the bar */

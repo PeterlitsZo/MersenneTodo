@@ -75,11 +75,12 @@ This is a todo list for this project:
       - [x] Add a title
     - [x] Feat: Info about github address, issue address
   - [ ] Others
-    - [ ] Fix : flex looks bad.
+    - [ ] Fix : the setTimeout function in src/main.js
     - [ ] Feat: bar state: OK / not OK / list
     - [ ] Feat: Use Vuex
     - [ ] Feat: remove the title bars of the application
     - [ ] Feat: add a icon of the application
+    - [x] Fix : flex looks bad.
     - [x] Fix : move the default json file be other place.
 
 ### Customize configuration
