@@ -58,6 +58,8 @@ This is a todo list for this project:
       - [x] Feat: defined as a component
       - [x] Feat: can be clicked.
       - [ ] Feat: with plus button
+        - [ ] change the editor state
+        - [x] Add a icon
     - [ ] Feat: Make it suppose the MarkDown highlight
     - [ ] Feat: Make it can deal with MarkDown
     - [ ] Feat: Todo as a tree
