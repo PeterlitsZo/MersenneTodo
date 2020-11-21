@@ -6,12 +6,12 @@
 
 <p align="center"><img
   src="./screenshot/mersenne-todo.png"
-  width="68%"
+  width="48%"
 ></div>
 
 ## Download
 
-Go to [release page](https://github.com/PeterlitsZo/MersenneTodo/releases/tag/v0.0.2-alpha)
+Go to [release page](https://github.com/PeterlitsZo/MersenneTodo/releases)
 to download the lastest MersenneTodo.
 
 ## build/run by source
@@ -65,11 +65,6 @@ This is a todo list for this project:
     - [x] ...
   - [ ] DayChart
   - [ ] Code Editor
-  - [ ] Info
-    - [ ] Feat: make Info looks great
-      - [ ] ...
-      - [x] Add a title
-    - [x] Feat: Info about github address, issue address
   - [ ] Others
     - [ ] Fix : the setTimeout function in src/main.js
     - [ ] Feat: remove the title bars of the application
@@ -77,3 +72,5 @@ This is a todo list for this project:
     - [x] Feat: Use Vuex
     - [x] Fix : flex looks bad.
     - [x] Fix : move the default json file be other place.
+  - [x] Info
+

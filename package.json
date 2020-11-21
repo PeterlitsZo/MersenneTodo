@@ -8,9 +8,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
-    "electron:allbuild": "yarn electron:build --win nsis --linux snap --linux AppImage",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:allbuild": "yarn electron:build -w nsis -l snap -l AppImage",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
