@@ -42,7 +42,7 @@ var normalBars = (bars) => {
 // get the bar by index
 var barByIndex = (bars, index) => {
   var result = { child: bars }
-  console.log('index: ', index, ', result: ', result)
+  console.log('bars', bars, 'index: ', index, ', result: ', result)
   for (var i = 0; i < index.length; i++) {
     result = result.child[index[i]]
     console.log(result, result.title)
@@ -97,7 +97,9 @@ const mutations = {
 
   // change the bay's OK state by index
   changeState (state, { index }) {
-    var aim = barByIndex(state.bars, index.slice)
+    console.log('change state...')
+    var aim = barByIndex(state.bars, index)
+    console.log("aim: ", aim, "\nindex:", index)
     aim.OK = !aim.OK
     this.commit('todolist/update', { bars: state.bars })
   },
