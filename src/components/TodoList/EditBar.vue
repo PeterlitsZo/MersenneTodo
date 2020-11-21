@@ -1,6 +1,6 @@
 <template>
   <div class="editor">
-    <div class="Text">Text TODO, enter <kbd>Ctrl+Enter</kbd> to submit:</div>
+    <div class="Text"><span v-html="$store.state.todolist.editor.text"></span></div>
     <CodeEditor class="EditBarInput" @enter="submit" :initData="''" />
   </div>
 </template>

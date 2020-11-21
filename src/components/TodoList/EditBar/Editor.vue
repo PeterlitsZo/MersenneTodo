@@ -34,8 +34,14 @@
       })
       // Set the command for edit to enter the message
       this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-        this.$emit('enter', this.editor.getValue())
+        console.log('enter ctrl enter')
+        this.$store.commit('todolist/submit', { message: this.editor.getValue() })
         this.editor.setValue('')
+      })
+      // Set the command for enter the message for root
+      this.editor.addCommand(monaco.KeyCode.Escape, () => {
+        console.log('enter esc')
+        this.$store.commit('todolist/addBar', { index: undefined })
       })
     },
     beforeDestroy () {

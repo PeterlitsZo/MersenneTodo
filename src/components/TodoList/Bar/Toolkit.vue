@@ -54,7 +54,8 @@
         this.$store.commit('todolist/killBar', {index: this.index})
       },
       addBar () {
-        this.$emit('add-bar', this.index)
+        console.log('add bar to: ', this.index)
+        this.$store.commit('todolist/addBar', {index: this.index})
       },
       unClick () {
         this.clicked = false

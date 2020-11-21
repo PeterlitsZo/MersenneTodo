@@ -1,12 +1,21 @@
 import fs from 'fs'
 
+// editor_text_C: const state for editor's text
+const editor_text_C = {
+  main: 'Text TODO, enter <kbd>Ctrl+Enter</kbd> to submit:',
+  sub: title => `Text TODO, enter <kbd>Ctrl+Enter</kbd> for submit for ` +
+                `${JSON.stringify(title)}, and enter <kbd>Esc</kbd> to ` +
+                `leave:`
+}
+
 // initial state
-// shape: [
-//   {title: String, time: Data(), OK: Boolean},
-//   ...
-// ]
+// shape: {
+//   bars: [ {title: String, time: Data(), OK: Boolean}, ... ]
+//   editor: {text: String}
+// }
 const state = () => ({
   bars: [],
+  editor: {text: editor_text_C.main, index: undefined},
   filePath: ''
 })
 
@@ -29,6 +38,8 @@ var normalBars = (bars) => {
 
 // mutations
 const mutations = {
+  // init Bars for todo application.
+  // read `json` file form filePath, then init state.bars with update mutations.
   init (state, { filePath }) {
     state.filePath = filePath
     fs.readFile(state.filePath, (err, data) => {
@@ -47,25 +58,52 @@ const mutations = {
       state.bars = normalBars(JSON.parse(data))
     })
   },
+
+  // update Bars and save
+  // set the state.bars' value to `bars`, then write it to filePath
   update (state, { bars }) {
-    if (bars) state.bars = bars
+    state.bars = bars
     fs.writeFile(state.filePath, JSON.stringify(state.bars), (err) => {
       if (err) {
         console.error(`Cannot write to ${state.filePath}!`)
       }
     })
   },
+
+  // kill bar by index
   killBar (state, { index }) {
     state.bars.splice(index, 1)
     this.commit('todolist/update', { bars: state.bars })
   },
+
+  // change the bay's OK state by index
   changeState (state, { index }) {
     state.bars[index].OK = !state.bars[index].OK
     this.commit('todolist/update', { bars: state.bars })
   },
+
+  // add Bar for todo list:
+  //  - if index == undef, add bar to the root
+  //  - else, add bar for bars[index]
+  addBar (state, { index }) {
+    state.editor.index = index
+    if (state.editor.index != undefined) {
+      state.editor.text = editor_text_C.sub(state.bars[state.editor.index].title)
+    } else {
+      state.editor.text = editor_text_C.main
+    }
+  },
+
+  // submit by message and index, and then update it:
+  //  - if index == undef, add bar to the root
+  //  - else, add bar for bars[index]
   submit (state, { message }) {
-    state.bars.unshift(normalBar({title: message}))
-    this.commit('todolist/update', { bars: state.bars })
+    if (state.editor.index != undefined) {
+      // ...
+    } else {
+      state.bars.unshift(normalBar({title: message}))
+      this.commit('todolist/update', { bars: state.bars })
+    }
   }
 }
 
