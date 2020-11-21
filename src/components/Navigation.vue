@@ -1,6 +1,7 @@
 <template>
   <div id="navigation">
     <NavButtom to="Main" icon="home" />
+    <NavButtom to="Setting" icon="cog" />
     <NavButtom to="Info" icon="info" />
   </div>
 </template>

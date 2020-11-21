@@ -72,5 +72,8 @@ This is a todo list for this project:
     - [x] Feat: Use Vuex
     - [x] Fix : flex looks bad.
     - [x] Fix : move the default json file be other place.
+  - [ ] Setting
+    - [ ] Open file manager of the userdata json file
+    - [ ] Setting the path. (add a setting json file)
   - [x] Info
 
