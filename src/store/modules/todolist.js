@@ -86,11 +86,14 @@ const mutations = {
 
   // kill bar by index
   killBar (state, { index }) {
-    if (index != undefined) {
-      var aim = barByIndex(state.bars, index.slice(0, -1))
-      aim.child.splice(index[-1], 1)
+    var index_ = index.slice()
+    if (index.length != 1) {
+      var i = index_.pop()
+      var aim = barByIndex(state.bars, index_)
+      aim.child.splice(i, 1)
       this.commit('todolist/update', { bars: state.bars })
     } else {
+      state.bars.splice(index[0], 1)
       this.commit('todolist/update', { bars: state.bars })
     }
   },
