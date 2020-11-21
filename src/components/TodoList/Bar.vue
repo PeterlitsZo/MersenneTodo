@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Main bar -->
     <div
       class="bar"
       :class="{OK: obj.OK}"
@@ -16,6 +17,15 @@
         {{ obj.title }} <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
       </div>
     </div>
+
+    <!-- Subbar -->
+    <Bar
+      class="subBar"
+      v-for="(bar, i) in obj.child"
+      :obj="bar"
+      :index="[...index, i]"
+      :key="i"
+    />
   </div>
 </template>
 
@@ -26,7 +36,7 @@
     name: 'Bar',
     props: {
       obj: Object,
-      index: Number
+      index: Array
     },
     data () {
       return {
@@ -46,7 +56,6 @@
 
 <style lang="scss">
   .bar {
-    font-size: 1.5em;
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: center;
@@ -91,6 +100,24 @@
         padding: 0.2em;
         background: #f2f2f2;
       }
+    }
+  }
+
+  /* Subbar */
+  .subBar {
+    margin-left: 2em;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      background-color: #f2f2f2;
+      content: '';
+      height: 1px;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      pointer-events: none;
     }
   }
 </style>

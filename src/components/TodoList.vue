@@ -9,7 +9,7 @@
         class="Bar"
         v-for="(bar, index) in $store.state.todolist.bars"
         :obj="bar"
-        :index="index"
+        :index="[index]"
         :key="index"
       />
     </div>
@@ -55,6 +55,7 @@
     padding: 20px;
     flex-grow: 1;
     overflow: auto;
+    font-size: 1.5em;
     .Bar {
       position: relative;
 

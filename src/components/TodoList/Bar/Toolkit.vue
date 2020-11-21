@@ -2,10 +2,12 @@
   <div>
     <!-- State: Clicked -->
     <div v-if="clicked" key="toolkit" class="fullHeight" v-click-outside="unClick">
+
       <!-- Kill Button-->
       <div class="icon KillButton" @click="deleteBar">
         <Icon class="icon" name="trash" />
       </div>
+
       <!-- Add sub list -->
       <div class="icon" @click="addBar">
         <Icon name="plus" />
@@ -40,7 +42,7 @@
         required: true
       },
       index: {
-        type: Number,
+        type: Array,
         required: true
       }
     },
@@ -51,11 +53,12 @@
     },
     methods: {
       deleteBar () {
-        this.$store.commit('todolist/killBar', {index: [this.index]})
+        console.log('delete bar: ', this.index)
+        this.$store.commit('todolist/killBar', {index: this.index})
       },
       addBar () {
-        console.log('add bar to: ', [this.index])
-        this.$store.commit('todolist/addBar', {index: [this.index]})
+        console.log('add bar to: ', this.index)
+        this.$store.commit('todolist/addBar', {index: this.index})
       },
       unClick () {
         this.clicked = false

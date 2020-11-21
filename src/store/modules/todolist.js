@@ -86,13 +86,19 @@ const mutations = {
 
   // kill bar by index
   killBar (state, { index }) {
-    state.bars.splice(index, 1)
-    this.commit('todolist/update', { bars: state.bars })
+    if (index != undefined) {
+      var aim = barByIndex(state.bars, index.slice(0, -1))
+      aim.child.splice(index[-1], 1)
+      this.commit('todolist/update', { bars: state.bars })
+    } else {
+      this.commit('todolist/update', { bars: state.bars })
+    }
   },
 
   // change the bay's OK state by index
   changeState (state, { index }) {
-    state.bars[index].OK = !state.bars[index].OK
+    var aim = barByIndex(state.bars, index.slice)
+    aim.OK = !aim.OK
     this.commit('todolist/update', { bars: state.bars })
   },
 
@@ -101,32 +107,28 @@ const mutations = {
   //  - else, add bar for bars[index[0]][index[1]]...
   addBar (state, { index }) {
     state.editor.index = index
-    console.log(state.editor.index)
 
     if (state.editor.index != undefined) {
       var aim = barByIndex(state.bars, state.editor.index)
-      console.log('aim: ', aim)
       state.editor.text = editor_text_C.sub(aim.title)
     } else {
       state.editor.text = editor_text_C.main
     }
+    this.commit('todolist/update', { bars: state.bars })
   },
 
   // submit by message and index, and then update it:
   //  - if index == undef, add bar to the root
   //  - else, add bar for bars[index]
   submit (state, { message }) {
-    console.log(state.editor.index)
     if (state.editor.index != undefined) {
       var aim = barByIndex(state.bars, state.editor.index)
-      console.log('aim: ', aim)
       aim.child.unshift(normalBar({title: message}))
       this.commit('todolist/update', { bars: state.bars })
     } else {
       state.bars.unshift(normalBar({title: message}))
       this.commit('todolist/update', { bars: state.bars })
     }
-    console.log(state.bars)
   }
 }
 
