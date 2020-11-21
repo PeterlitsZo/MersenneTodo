@@ -7,17 +7,15 @@
     <div class="todolist">
       <Bar
         class="Bar"
-        v-for="(bar, index) in bars"
+        v-for="(bar, index) in $store.state.todolist.bars"
         :obj="bar"
         :index="index"
         :key="index"
-        @kill-bar="killBar"
-        @change-state="changeState"
       />
     </div>
 
     <!-- The list of the TodoList/EditBar -->
-    <EndTitle><EditBar @submit="submit"/></EndTitle>
+    <EndTitle><EditBar /></EndTitle>
   </div>
 </template>
 
@@ -29,26 +27,6 @@
 
   export default {
     name: 'TodoList',
-    props: {
-      bars: Array
-    },
-    methods: {
-      killBar (index) {
-        var barArray = this.bars.slice()
-        barArray.splice(index, 1)
-        this.$emit('update', barArray)
-      },
-      changeState (index) {
-        var barArray = this.bars.slice()
-        barArray[index].OK = !barArray[index].OK
-        this.$emit('update', barArray)
-      },
-      submit (message) {
-        var barArray = this.bars.slice()
-        barArray.push({title: message, OK: false, time: new Date()})
-        this.$emit('update', barArray)
-      }
-    },
     components: {
       Bar,
       EditBar,

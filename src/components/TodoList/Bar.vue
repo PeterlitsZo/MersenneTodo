@@ -10,7 +10,7 @@
         class="toolkit"
         :state="obj.OK ? 'OK' : 'not OK'"
         :ishovered="ishovered"
-        @kill-bar="killSelf"
+        :index="index"
       />
       <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
         {{ obj.title }} <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
@@ -35,11 +35,7 @@
     },
     methods: {
       changeState () {
-        this.$emit('change-state', this.index)
-      },
-      killSelf () {
-        console.log('Killing')
-        this.$emit('kill-bar', this.index)
+        this.$store.commit('todolist/changeState', {index: this.index})
       }
     },
     components: {

@@ -12,11 +12,7 @@
     name: 'EditBar',
     methods: {
       submit (message) {
-        if (message) {
-          this.$emit('submit', message)
-        } else {
-          // do nothing...
-        }
+        this.$store.commit('todolist/submit', { message })
       }
     },
     components: {
@@ -25,7 +21,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .Text {
     font-size: 1em;
     padding: 0.3em;
@@ -36,16 +32,4 @@
     border: #f2f2f2 solid 1px;
     width: 100%;
   }
-
-  .editor::before {
-    background-color: #f2f2f2;
-    top: 0;
-    content: '';
-    height: 1px;
-    left: 0;
-    opacity: 1;
-    pointer-events: none;
-    position: absolute;
-  }
-
 </style>
