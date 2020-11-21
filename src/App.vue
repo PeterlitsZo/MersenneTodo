@@ -8,7 +8,17 @@
 <script>
   import Navigation from './components/Navigation.vue'
 
+  import { remote } from 'electron'
+
   export default {
+    data: () => {
+      return {
+        datafilepath: remote.app.getPath('userData') + '/mersennetodo.json'
+      }
+    },
+    created () {
+      this.$store.commit('todolist/init', { filePath: this.datafilepath })
+    },
     components: {
       Navigation
     }

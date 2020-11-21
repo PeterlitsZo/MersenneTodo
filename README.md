@@ -51,6 +51,7 @@ This is a todo list for this project:
     - [x] Feat: title component
   - [x] Nav
   - [ ] TodoList
+    - [ ] Feat: bar state: OK / not OK / list
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
@@ -78,13 +79,8 @@ This is a todo list for this project:
     - [x] Feat: Info about github address, issue address
   - [ ] Others
     - [ ] Fix : the setTimeout function in src/main.js
-    - [ ] Feat: bar state: OK / not OK / list
-    - [ ] Feat: Use Vuex
     - [ ] Feat: remove the title bars of the application
     - [ ] Feat: add a icon of the application
+    - [x] Feat: Use Vuex
     - [x] Fix : flex looks bad.
     - [x] Fix : move the default json file be other place.
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
