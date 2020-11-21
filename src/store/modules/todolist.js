@@ -1,5 +1,7 @@
 import fs from 'fs'
 
+import { remote } from 'electron'
+
 // editor_text_C: const state for editor's text
 const editor_text_C = {
   main: 'Text TODO, enter <kbd>Ctrl+Enter</kbd> to submit:',
@@ -90,9 +92,11 @@ const mutations = {
     if (index.length != 1) {
       var i = index_.pop()
       var aim = barByIndex(state.bars, index_)
+      remote.clipboard.writeText(aim.child[i].title)
       aim.child.splice(i, 1)
       this.commit('todolist/update', { bars: state.bars })
     } else {
+      remote.clipboard.writeText(state.bars[index[0]].title)
       state.bars.splice(index[0], 1)
       this.commit('todolist/update', { bars: state.bars })
     }
