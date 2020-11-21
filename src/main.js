@@ -15,7 +15,6 @@ Vue.directive('click-outside', {
   bind: function (el, binding, vnode) {
     console.log('Binding')
     el.clickOutsideEvent = function (event) {
-      console.log(el, event.target, el==event.target, el.contains(event.target))
       // here I check that click was outside the el and his children
       if (!(el == event.target || el.contains(event.target))) {
         // and if it did, call method provided in attribute value
@@ -27,7 +26,7 @@ Vue.directive('click-outside', {
     // When I click the the ellipsis-h buttom, it do not change anything.
     // I find that itself call this function.
     setTimeout(() => {
-        document.body.addEventListener('click', el.clickOutsideEvent)
+      document.body.addEventListener('click', el.clickOutsideEvent)
     }, 100)
   },
   unbind: function (el) {

@@ -21,17 +21,31 @@ const state = () => ({
 
 // make the bar/bars be normal, be in bars' shape
 var normalBar = (bar) => {
+  if (!bar['title']) console.error('Bar require title')
   bar['time'] = bar['time'] ? new Date(bar['time']) : new Date()
   bar['OK'] = bar['OK'] ? bar['OK'] : false
-  if (!bar['title']) console.error('Bar require title')
+  bar['child'] = normalBars(bar['child'])
   return bar
 }
 
 var normalBars = (bars) => {
   var result = []
-  for (var i = 0; i < bars.length; i++) {
-    if(bars[i])
-      result.push(normalBar(bars[i]))
+  if (bars) {
+    for (var i = 0; i < bars.length; i++) {
+      if(bars[i])
+        result.push(normalBar(bars[i]))
+    }
+  }
+  return result
+}
+
+// get the bar by index
+var barByIndex = (bars, index) => {
+  var result = { child: bars }
+  console.log('index: ', index, ', result: ', result)
+  for (var i = 0; i < index.length; i++) {
+    result = result.child[index[i]]
+    console.log(result, result.title)
   }
   return result
 }
@@ -84,11 +98,15 @@ const mutations = {
 
   // add Bar for todo list:
   //  - if index == undef, add bar to the root
-  //  - else, add bar for bars[index]
+  //  - else, add bar for bars[index[0]][index[1]]...
   addBar (state, { index }) {
     state.editor.index = index
+    console.log(state.editor.index)
+
     if (state.editor.index != undefined) {
-      state.editor.text = editor_text_C.sub(state.bars[state.editor.index].title)
+      var aim = barByIndex(state.bars, state.editor.index)
+      console.log('aim: ', aim)
+      state.editor.text = editor_text_C.sub(aim.title)
     } else {
       state.editor.text = editor_text_C.main
     }
@@ -98,12 +116,17 @@ const mutations = {
   //  - if index == undef, add bar to the root
   //  - else, add bar for bars[index]
   submit (state, { message }) {
+    console.log(state.editor.index)
     if (state.editor.index != undefined) {
-      // ...
+      var aim = barByIndex(state.bars, state.editor.index)
+      console.log('aim: ', aim)
+      aim.child.unshift(normalBar({title: message}))
+      this.commit('todolist/update', { bars: state.bars })
     } else {
       state.bars.unshift(normalBar({title: message}))
       this.commit('todolist/update', { bars: state.bars })
     }
+    console.log(state.bars)
   }
 }
 

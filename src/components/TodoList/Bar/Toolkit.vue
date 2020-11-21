@@ -51,11 +51,11 @@
     },
     methods: {
       deleteBar () {
-        this.$store.commit('todolist/killBar', {index: this.index})
+        this.$store.commit('todolist/killBar', {index: [this.index]})
       },
       addBar () {
-        console.log('add bar to: ', this.index)
-        this.$store.commit('todolist/addBar', {index: this.index})
+        console.log('add bar to: ', [this.index])
+        this.$store.commit('todolist/addBar', {index: [this.index]})
       },
       unClick () {
         this.clicked = false
