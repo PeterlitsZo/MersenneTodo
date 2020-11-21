@@ -55,20 +55,13 @@ This is a todo list for this project:
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
-    - [ ] Feat: Tool kits for Bars
-      - [x] Feat: defined as a component
-      - [x] Feat: can be clicked.
-      - [ ] Feat: with plus button
-        - [ ] change the editor state
-        - [x] Add a icon
     - [ ] Feat: Make it suppose the MarkDown highlight
     - [ ] Feat: Make it can deal with MarkDown
-    - [ ] Feat: Todo as a tree
+    - [x] Feat: Todo as a tree
+    - [x] Feat: Tool kits for Bars
     - [x] Feat: Make the editor at the end
     - [x] Feat: make the Bar's OK area be bigger
     - [x] Fix : fix that it cannot build (bacause webpack, i guess).
-    - [x] Feat: Use `yarn` but not `npm`
-    - [x] Feat: Can make the todolist be stored as a `.json` file.
     - [x] ...
   - [ ] DayChart
   - [ ] Code Editor
