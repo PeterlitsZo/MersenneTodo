@@ -14,7 +14,8 @@
         :index="index"
       />
       <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
-        {{ obj.title }} <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
+        <span v-html="mdedTitle" />
+        <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
       </div>
     </div>
 
@@ -31,6 +32,21 @@
 
 <script>
   import Toolkit from './Bar/Toolkit.vue'
+
+  import MarkdownIt from 'markdown-it'
+  import highlight from 'highlight.js'
+  var md = new MarkdownIt({
+    highlight: (str, lang) => {
+      if (lang && highlight.getLanguage(lang)) {
+        try {
+          return highlight.highlight(lang, str).value
+        } catch (__) {
+          // ...
+        }
+      }
+      return ''
+    }
+  })
   
   export default {
     name: 'Bar',
@@ -46,6 +62,11 @@
     methods: {
       changeState () {
         this.$store.commit('todolist/changeState', {index: this.index})
+      }
+    },
+    computed: {
+      mdedTitle () {
+        return md.renderInline(this.obj.title)
       }
     },
     components: {

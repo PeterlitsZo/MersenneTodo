@@ -55,13 +55,11 @@ This is a todo list for this project:
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
-    - [ ] Feat: Make it suppose the MarkDown highlight
-    - [ ] Feat: Make it can deal with MarkDown
+    - [x] Feat: Make it suppose the MarkDown highlight
+    - [x] Feat: Make it can deal with MarkDown
     - [x] Feat: Todo as a tree
     - [x] Feat: Tool kits for Bars
     - [x] Feat: Make the editor at the end
-    - [x] Feat: make the Bar's OK area be bigger
-    - [x] Fix : fix that it cannot build (bacause webpack, i guess).
     - [x] ...
   - [ ] DayChart
   - [ ] Code Editor
@@ -73,7 +71,7 @@ This is a todo list for this project:
     - [x] Fix : flex looks bad.
     - [x] Fix : move the default json file be other place.
   - [ ] Setting
-    - [ ] Open file manager of the userdata json file
     - [ ] Setting the path. (add a setting json file)
+    - [x] Open file manager of the userdata json file
   - [x] Info
 
