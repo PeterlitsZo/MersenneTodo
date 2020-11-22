@@ -55,7 +55,7 @@
     padding: 20px;
     flex-grow: 1;
     overflow: auto;
-    font-size: 1.5em;
+    font-size: 1.3em;
     .Bar {
       position: relative;
 

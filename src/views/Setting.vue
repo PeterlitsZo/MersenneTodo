@@ -46,12 +46,11 @@
     .info {
       flex: auto;
       padding: 20px;
+      font-size: 1.3em;
       
       .list {
-        padding: 20px;
         flex-grow: 1;
         overflow: auto;
-        font-size: 1.5em;
 
         .Bar {
           position: relative;

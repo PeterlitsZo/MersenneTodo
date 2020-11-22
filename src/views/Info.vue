@@ -53,6 +53,7 @@
 
     .info {
       flex: auto;
+      font-size: 1.3em;
       padding: 20px;
 
       a {
