@@ -123,6 +123,9 @@ const mutations = {
 
   // kill bar by index
   killBar (state, { index }) {
+    // reset the editor's index
+    this.commit('todolist/addBar', { index: undefined })
+
     var index_ = index.slice()
     if (index.length != 1) {
       var i = index_.pop()
