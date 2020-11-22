@@ -1,4 +1,5 @@
 import fs from 'fs'
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 
 import { remote } from 'electron'
 
@@ -13,11 +14,16 @@ const editor_text_C = {
 // initial state
 // shape: {
 //   bars: [ {title: String, time: Data(), OK: Boolean}, ... ]
-//   editor: {text: String}
+//   editor: {text: String, index: Number, obj: Object}
 // }
 const state = () => ({
   bars: [],
-  editor: {text: editor_text_C.main, index: undefined},
+  editor: {
+    text: editor_text_C.main,
+    index: undefined,
+    container: undefined,
+    obj: null
+  },
   filePath: ''
 })
 
@@ -54,9 +60,10 @@ var barByIndex = (bars, index) => {
 
 // mutations
 const mutations = {
-  // init Bars for todo application.
-  // read `json` file form filePath, then init state.bars with update mutations.
   init (state, { filePath }) {
+    // init Bars for todo application.
+    // read `json` file form filePath, then init state.bars with update mutations.
+    // ------------------------------------------------------------------------
     state.filePath = filePath
     fs.readFile(state.filePath, (err, data) => {
       if (err) {
@@ -72,6 +79,34 @@ const mutations = {
         return
       }
       state.bars = normalBars(JSON.parse(data))
+    })
+
+    // init the Editor
+    // ------------------------------------------------------------------------
+    state.editor.container = document.createElement('div')
+    state.editor.container.style.height = '5em'
+    state.editor.obj = monaco.editor.create(state.editor.container, {
+      value: this.code,
+      language: 'markdown',
+      folding: true,
+      foldingStrategy: 'indentation',
+      automaticLayout: true,
+      overviewRulerBorder: false,
+      scrollBeyondLastLine: false,
+      minimap: {
+        enabled: false
+      }
+    })
+    // Set the command for edit to enter the message
+    state.editor.obj.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+      console.log('enter ctrl enter')
+      this.commit('todolist/submit', { message: state.editor.obj.getValue() })
+      state.editor.obj.setValue('')
+    })
+    // Set the command for enter the message for root
+    state.editor.obj.addCommand(monaco.KeyCode.Escape, () => {
+      console.log('enter esc')
+      this.commit('todolist/addBar', { index: undefined })
     })
   },
 
@@ -123,6 +158,9 @@ const mutations = {
     } else {
       state.editor.text = editor_text_C.main
     }
+
+    // focus on the editor auto
+    state.editor.obj.focus()
     this.commit('todolist/update', { bars: state.bars })
   },
 

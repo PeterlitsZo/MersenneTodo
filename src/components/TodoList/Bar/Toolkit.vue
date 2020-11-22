@@ -58,7 +58,7 @@
       },
       addBar () {
         console.log('add bar to: ', this.index)
-        this.$store.commit('todolist/addBar', {index: this.index})
+        this.$store.commit('todolist/addBar', {index: this.index,})
       },
       unClick () {
         this.clicked = false
