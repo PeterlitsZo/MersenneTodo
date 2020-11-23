@@ -3,7 +3,7 @@
     <!-- Main bar -->
     <div
       class="bar"
-      :class="{OK: obj.OK}"
+      :class="{OK: OK}"
       @mouseover="ishovered=true"
       @mouseout="ishovered=false"
     >
@@ -12,7 +12,11 @@
         :ishovered="ishovered"
         :index="index"
       />
-      <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
+      <div
+        @click="changeState"
+        class="barName"
+        :class="{deleteText: OK, left: !havechildren}"
+      >
         <span v-html="mdedTitle" />
         <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
       </div>
@@ -62,7 +66,9 @@
     },
     methods: {
       changeState () {
-        this.$store.commit('todolist/changeState', {index: this.index})
+        if (!this.$store.getters['todolist/havechildren'](this.index)) {
+          this.$store.commit('todolist/changeState', {index: this.index})
+        }
       }
     },
     computed: {
@@ -71,6 +77,12 @@
       },
       folding () {
         return this.$store.getters['todolist/folding'](this.index)
+      },
+      OK () {
+        return this.$store.getters['todolist/OK'](this.index)
+      },
+      havechildren () {
+        return this.$store.getters['todolist/havechildren'](this.index)
       }
     },
     components: {
@@ -113,7 +125,9 @@
       padding: 0.3em;
 
       &:hover {
-        background: #f2f2f2;
+        &[class~="left"] {
+          background: #f2f2f2;
+        }
       }
       &.deleteText {
         text-decoration: line-through;

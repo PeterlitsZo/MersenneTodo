@@ -197,6 +197,20 @@ const getters = {
   },
   havechildren: state => index => {
     return barByIndex(state.bars, index).child.length != 0
+  },
+  OK: (state, getters) => index => {
+    var aim = barByIndex(state.bars, index)
+    if (getters['havechildren'](index)) {
+      var flag = true
+      for (var i = 0; i < aim.child.length; i ++) {
+        if (!getters['OK'](index.concat(i))) {
+          flag = false
+        }
+      }
+      return flag
+    } else {
+      return aim.OK
+    }
   }
 }
 
