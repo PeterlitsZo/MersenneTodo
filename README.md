@@ -51,16 +51,16 @@ This is a todo list for this project:
     - [x] Feat: title component
   - [x] Nav
   - [ ] TodoList
-    - [ ] Feat: fold the tree todo
-    - [ ] Feat: bar state: OK / not OK / list
+    - [ ] Feat: Javascript support
+    - [ ] Feat: make the toolkit auto pop
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
-    - [x] Feat: Make it suppose the MarkDown highlight
+    - [x] Feat: fold the tree todo
+    - [x] Feat: bar state: OK / not OK / list
+    - [x] Feat: Make it support the MarkDown highlight
     - [x] Feat: Make it can deal with MarkDown
     - [x] Feat: Todo as a tree
-    - [x] Feat: Tool kits for Bars
-    - [x] Feat: Make the editor at the end
     - [x] ...
   - [ ] DayChart
   - [ ] Code Editor
