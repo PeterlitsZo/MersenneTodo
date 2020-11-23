@@ -2,10 +2,12 @@
   <div>
     <!-- State: Clicked -->
     <div v-if="clicked" key="toolkit" class="fullHeight" v-click-outside="unClick">
-
-      <!-- Kill Button-->
-      <div class="icon KillButton" @click="deleteBar">
-        <Icon class="icon" name="trash" />
+      <!-- Fold self -->
+      <div class="icon" @click="foldBar">
+        <!-- folded -->
+        <Icon v-if="folding" name="angle-right" />
+        <!-- unfolded -->
+        <Icon v-else name="angle-down" />
       </div>
 
       <!-- Add sub list -->
@@ -13,12 +15,9 @@
         <Icon name="plus" />
       </div>
 
-      <!-- Fold self -->
-      <div class="icon" @click="foldBar">
-        <!-- folded -->
-        <Icon v-if="isfolded" name="angle-right" />
-        <!-- unfolded -->
-        <Icon v-else name="angle-down" />
+      <!-- Kill Button-->
+      <div class="icon KillButton" @click="deleteBar">
+        <Icon class="icon" name="trash" />
       </div>
     </div>
 
@@ -30,7 +29,7 @@
       <div v-else class="icon">
         <Icon v-if="state == 'OK'" name="check-circle" />
         <Icon v-else-if="state == 'not OK'" name="regular/circle" />
-        <Icon v-else-if="state == 'folding'" name="angle-left" />
+        <Icon v-else-if="state == 'folding'" name="angle-right" />
         <Icon v-else name="angle-down" />
       </div>
     </div>
@@ -43,15 +42,7 @@
   export default {
     name: 'toolkit',
     props: {
-      // state: {
-      //   type: String,
-      //   required: true
-      // },
       ishovered: {
-        type: Boolean,
-        required: true
-      },
-      isfolded: {
         type: Boolean,
         required: true
       },
@@ -74,16 +65,22 @@
         console.log('add bar to: ', this.index)
         this.$store.commit('todolist/addBar', {index: this.index,})
       },
+      foldBar () {
+        this.$store.commit('todolist/foldBar', {index: this.index})
+      },
       unClick () {
         this.clicked = false
       },
       setClick () {
         this.clicked = true
-      }
+      },
     },
     computed: {
       state () {
         return this.$store.getters['todolist/state'](this.index)
+      },
+      folding () {
+        return this.$store.getters['todolist/folding'](this.index)
       }
     },
     components: {

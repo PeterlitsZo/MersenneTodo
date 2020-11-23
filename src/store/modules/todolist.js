@@ -162,6 +162,12 @@ const mutations = {
     this.commit('todolist/update', { bars: state.bars })
   },
 
+  // fold Bar for todo list
+  foldBar (state, { index }) {
+    var aim = barByIndex(state.bars, index)
+    aim.folding = !aim.folding
+  },
+
   // submit by message and index, and then update it:
   //  - if index == undef, add bar to the root
   //  - else, add bar for bars[index]
@@ -185,6 +191,9 @@ const getters = {
     } else {
       return aim.OK ? 'OK' : 'not OK'
     }
+  },
+  folding: state => index => {
+    return barByIndex(state.bars, index).folding
   }
 }
 

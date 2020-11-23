@@ -10,7 +10,6 @@
       <Toolkit
         class="toolkit"
         :ishovered="ishovered"
-        :isfolded="false"
         :index="index"
       />
       <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
@@ -20,13 +19,15 @@
     </div>
 
     <!-- Subbar -->
-    <Bar
-      class="subBar"
-      v-for="(bar, i) in obj.child"
-      :obj="bar"
-      :index="[...index, i]"
-      :key="i"
-    />
+    <div v-if="!folding">
+      <Bar
+        class="subBar"
+        v-for="(bar, i) in obj.child"
+        :obj="bar"
+        :index="[...index, i]"
+        :key="i"
+      />
+    </div>
   </div>
 </template>
 
@@ -67,6 +68,9 @@
     computed: {
       mdedTitle () {
         return md.renderInline(this.obj.title)
+      },
+      folding () {
+        return this.$store.getters['todolist/folding'](this.index)
       }
     },
     components: {
