@@ -194,6 +194,9 @@ const getters = {
   },
   folding: state => index => {
     return barByIndex(state.bars, index).folding
+  },
+  havechildren: state => index => {
+    return barByIndex(state.bars, index).child.length != 0
   }
 }
 

@@ -3,7 +3,7 @@
     <!-- State: Clicked -->
     <div v-if="clicked" key="toolkit" class="fullHeight" v-click-outside="unClick">
       <!-- Fold self -->
-      <div class="icon" @click="foldBar">
+      <div v-if="havechildren" class="icon" @click="foldBar">
         <!-- folded -->
         <Icon v-if="folding" name="angle-right" />
         <!-- unfolded -->
@@ -81,6 +81,9 @@
       },
       folding () {
         return this.$store.getters['todolist/folding'](this.index)
+      },
+      havechildren () {
+        return this.$store.getters['todolist/havechildren'](this.index)
       }
     },
     components: {
