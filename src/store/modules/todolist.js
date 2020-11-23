@@ -13,7 +13,7 @@ const editor_text_C = {
 
 // initial state
 // shape: {
-//   bars: [ {title: String, time: Data(), OK: Boolean}, ... ]
+//   bars: [ {title: String, time: Data(), OK: Boolean, folding: Boolean}, ... ]
 //   editor: {text: String, index: Number, obj: Object}
 // }
 const state = () => ({
@@ -32,6 +32,7 @@ var normalBar = (bar) => {
   if (!bar['title']) console.error('Bar require title')
   bar['time'] = bar['time'] ? new Date(bar['time']) : new Date()
   bar['OK'] = bar['OK'] ? bar['OK'] : false
+  bar['folding'] = bar['folding'] ? bar['folding'] : false
   bar['child'] = normalBars(bar['child'])
   return bar
 }
@@ -50,10 +51,8 @@ var normalBars = (bars) => {
 // get the bar by index
 var barByIndex = (bars, index) => {
   var result = { child: bars }
-  console.log('bars', bars, 'index: ', index, ', result: ', result)
   for (var i = 0; i < index.length; i++) {
     result = result.child[index[i]]
-    console.log(result, result.title)
   }
   return result
 }
@@ -99,13 +98,11 @@ const mutations = {
     })
     // Set the command for edit to enter the message
     state.editor.obj.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-      console.log('enter ctrl enter')
       this.commit('todolist/submit', { message: state.editor.obj.getValue() })
       state.editor.obj.setValue('')
     })
     // Set the command for enter the message for root
     state.editor.obj.addCommand(monaco.KeyCode.Escape, () => {
-      console.log('enter esc')
       this.commit('todolist/addBar', { index: undefined })
     })
   },
@@ -142,9 +139,7 @@ const mutations = {
 
   // change the bay's OK state by index
   changeState (state, { index }) {
-    console.log('change state...')
     var aim = barByIndex(state.bars, index)
-    console.log("aim: ", aim, "\nindex:", index)
     aim.OK = !aim.OK
     this.commit('todolist/update', { bars: state.bars })
   },
@@ -182,8 +177,20 @@ const mutations = {
   }
 }
 
+const getters = {
+  state: state => index => {
+    var aim = barByIndex(state.bars, index)
+    if (aim.child.length != 0) {
+      return aim.folding ? 'folding' : 'unfolding'
+    } else {
+      return aim.OK ? 'OK' : 'not OK'
+    }
+  }
+}
+
 export default {
   namespaced: true,
   state,
-  mutations
+  mutations,
+  getters
 }

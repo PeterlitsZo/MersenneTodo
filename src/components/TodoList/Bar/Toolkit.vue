@@ -12,6 +12,14 @@
       <div class="icon" @click="addBar">
         <Icon name="plus" />
       </div>
+
+      <!-- Fold self -->
+      <div class="icon" @click="foldBar">
+        <!-- folded -->
+        <Icon v-if="isfolded" name="angle-right" />
+        <!-- unfolded -->
+        <Icon v-else name="angle-down" />
+      </div>
     </div>
 
     <!-- State: Unclicked -->
@@ -21,7 +29,9 @@
       </div>
       <div v-else class="icon">
         <Icon v-if="state == 'OK'" name="check-circle" />
-        <Icon v-else name="regular/circle" />
+        <Icon v-else-if="state == 'not OK'" name="regular/circle" />
+        <Icon v-else-if="state == 'folding'" name="angle-left" />
+        <Icon v-else name="angle-down" />
       </div>
     </div>
   </div>
@@ -33,11 +43,15 @@
   export default {
     name: 'toolkit',
     props: {
-      state: {
-        type: String,
+      // state: {
+      //   type: String,
+      //   required: true
+      // },
+      ishovered: {
+        type: Boolean,
         required: true
       },
-      ishovered: {
+      isfolded: {
         type: Boolean,
         required: true
       },
@@ -65,6 +79,11 @@
       },
       setClick () {
         this.clicked = true
+      }
+    },
+    computed: {
+      state () {
+        return this.$store.getters['todolist/state'](this.index)
       }
     },
     components: {

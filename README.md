@@ -51,6 +51,7 @@ This is a todo list for this project:
     - [x] Feat: title component
   - [x] Nav
   - [ ] TodoList
+    - [ ] Feat: fold the tree todo
     - [ ] Feat: bar state: OK / not OK / list
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar

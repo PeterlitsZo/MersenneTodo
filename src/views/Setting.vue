@@ -3,12 +3,14 @@
     <Title class="title">Mersenne Todo Setting Page</Title>
     <div class="info">
       <div class="list">
+
         <div class="Bar">
           file path:
-          <div id="datafile-path">
+          <span id="datafile-path">
             {{ $store.state.todolist.filePath }}
-          </div>
+          </span>
         </div>
+
       </div>
     </div>
   </div>

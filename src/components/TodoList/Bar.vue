@@ -9,8 +9,8 @@
     >
       <Toolkit
         class="toolkit"
-        :state="obj.OK ? 'OK' : 'not OK'"
         :ishovered="ishovered"
+        :isfolded="false"
         :index="index"
       />
       <div @click="changeState" class="barName" :class="{deleteText: obj.OK}">
