@@ -166,6 +166,7 @@ const mutations = {
   foldBar (state, { index }) {
     var aim = barByIndex(state.bars, index)
     aim.folding = !aim.folding
+    this.commit('todolist/update', { bars: state.bars })
   },
 
   // submit by message and index, and then update it:

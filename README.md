@@ -45,12 +45,14 @@ yarn electron:serve
 This is a todo list for this project:
 
 - [ ] Root
+  - [ ] Rfcr
   - [ ] Comman
     - [ ] ...
     - [x] Feat: icon component
     - [x] Feat: title component
-  - [x] Nav
   - [ ] TodoList
+    - [ ] Fix : folding, then updating
+    - [ ] Feat: make the bar can be edited
     - [ ] Feat: Javascript support
     - [ ] Feat: make the toolkit auto pop
     - [ ] Feat: update the default helpful msg
@@ -74,5 +76,6 @@ This is a todo list for this project:
   - [ ] Setting
     - [ ] Setting the path. (add a setting json file)
     - [x] Open file manager of the userdata json file
+  - [x] Nav
   - [x] Info
 
