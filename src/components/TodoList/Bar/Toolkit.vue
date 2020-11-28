@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- State: Clicked -->
-    <div v-if="clicked" key="toolkit" class="fullHeight" v-click-outside="unClick">
+    <div v-if="clicked" key="toolkit" class="fullHeight" @mouseleave="unClick">
       <!-- Fold self -->
       <div v-if="havechildren" class="icon" @click="foldBar">
         <!-- folded -->
@@ -23,7 +23,7 @@
 
     <!-- State: Unclicked -->
     <div v-else key="toolkitinfo" class="fullHeight">
-      <div v-if="ishovered" class="icon" @click="setClick">
+      <div v-if="ishovered" class="icon" @mouseenter="setClick">
         <Icon name="ellipsis-h"/>
       </div>
       <div v-else class="icon">
