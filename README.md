@@ -67,9 +67,9 @@ This is a todo list for this project:
   - [ ] DayChart
   - [ ] Code Editor
   - [ ] Others
-    - [ ] Fix : the setTimeout function in src/main.js
     - [ ] Feat: remove the title bars of the application
-    - [ ] Feat: add a icon of the application
+    - [x] Feat: add a icon of the application
+    - [x] Fix : the setTimeout function in src/main.js
     - [x] Feat: Use Vuex
     - [x] Fix : flex looks bad.
     - [x] Fix : move the default json file be other place.
