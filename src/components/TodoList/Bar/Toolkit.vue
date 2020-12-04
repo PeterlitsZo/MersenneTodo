@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div @mouseenter="setClick" @mouseleave="unClick">
     <!-- State: Clicked -->
-    <div v-if="clicked" key="toolkit" class="fullHeight" @mouseleave="unClick">
+    <div v-if="clicked" key="toolkit" class="fullHeight">
       <!-- Fold self -->
       <div v-if="havechildren" class="icon" @click="foldBar">
         <!-- folded -->
@@ -23,7 +23,7 @@
 
     <!-- State: Unclicked -->
     <div v-else key="toolkitinfo" class="fullHeight">
-      <div v-if="ishovered" class="icon" @mouseenter="setClick">
+      <div v-if="ishovered" class="icon">
         <Icon name="ellipsis-h"/>
       </div>
       <div v-else class="icon">
@@ -68,11 +68,21 @@
       foldBar () {
         this.$store.commit('todolist/foldBar', {index: (this as any).index})
       },
+
       unClick () {
-        (this as any).clicked = false
+        (this as any).clicked = false;
       },
       setClick () {
-        (this as any).clicked = true
+        (this as any).clicked = true;
+
+        var closeForgotToolkit = (event: any) => {
+          var element = event.target;
+          if (this.$el !== element && !this.$el.contains(element)) {
+            (this as any).clicked = false;
+          }
+          document.removeEventListener('mousemove', closeForgotToolkit, true);
+        };
+        document.addEventListener('mousemove', closeForgotToolkit, true);
       },
     },
     computed: {

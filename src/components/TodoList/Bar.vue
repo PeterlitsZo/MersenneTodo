@@ -4,8 +4,8 @@
     <div
       class="bar"
       :class="{OK: OK}"
-      @mouseover="ishovered=true"
-      @mouseout="ishovered=false"
+      @mouseover="setHover"
+      @mouseout="setUnHover"
     >
       <Toolkit
         class="toolkit"
@@ -71,6 +71,22 @@
         if (!this.$store.getters['todolist/havechildren']((this as any).index)) {
           this.$store.commit('todolist/changeState', {index: (this as any).index})
         }
+      },
+
+      setHover () {
+        (this as any).ishovered=true;
+
+        var unHover = (event: any) => {
+          var element = event.target;
+          if (this.$el !== element && !this.$el.contains(element)) {
+            (this as any).ishovered = false;
+          }
+          document.removeEventListener('mousemove', unHover, true);
+        };
+        document.addEventListener('mousemove', unHover, true);
+      },
+      setUnHover () {
+        (this as any).ishovered=false;
       }
     },
     computed: {
