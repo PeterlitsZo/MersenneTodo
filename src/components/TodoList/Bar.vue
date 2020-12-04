@@ -35,25 +35,27 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import Toolkit from './Bar/Toolkit.vue'
 
   import MarkdownIt from 'markdown-it'
   import highlight from 'highlight.js'
   var md = new MarkdownIt({
-    highlight: (str, lang) => {
+    highlight: (str: string, lang: string) => {
       if (lang && highlight.getLanguage(lang)) {
         try {
           return highlight.highlight(lang, str).value
         } catch (__) {
-          // ...
+          // do nothing
         }
       }
       return ''
     }
   })
   
-  export default {
+  export default Vue.extend({
     name: 'Bar',
     props: {
       obj: Object,
@@ -66,8 +68,8 @@
     },
     methods: {
       changeState () {
-        if (!this.$store.getters['todolist/havechildren'](this.index)) {
-          this.$store.commit('todolist/changeState', {index: this.index})
+        if (!this.$store.getters['todolist/havechildren']((this as any).index)) {
+          this.$store.commit('todolist/changeState', {index: (this as any).index})
         }
       }
     },
@@ -88,7 +90,7 @@
     components: {
       Toolkit
     }
-  }
+  })
 </script>
 
 <style lang="scss">

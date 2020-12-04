@@ -2,25 +2,45 @@ import fs from 'fs'
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 
 import { remote } from 'electron'
+import { MutationTree } from 'vuex'
 
 // editor_text_C: const state for editor's text
-const editor_text_C = {
+const editor_text_C: any = {
   main: 'Text TODO, enter <kbd>Ctrl+Enter</kbd> to submit:',
-  sub: title => `Text TODO, enter <kbd>Ctrl+Enter</kbd> for submit for ` +
-                `${JSON.stringify(title)}, and enter <kbd>Esc</kbd> to ` +
-                `leave:`
+  sub: (title: string): string => {
+    return `Text TODO, enter <kbd>Ctrl+Enter</kbd> for submit for ` +
+    `${JSON.stringify(title)}, and enter <kbd>Esc</kbd> to ` +
+    `leave:`
+  }
 }
 
-// initial state
-// shape: {
-//   bars: [ {title: String, time: Data(), OK: Boolean, folding: Boolean}, ... ]
-//   editor: {text: String, index: Number, obj: Object}
-// }
-const state = () => ({
+interface Bar {
+  title: string;
+  time: Date;
+  OK: boolean;
+  folding: boolean;
+  child: Bar[];
+}
+
+interface Editor {
+  text: string;
+  index: number[];
+  container?: HTMLElement;
+  // TODO: ugly type
+  obj: any;
+}
+
+interface State {
+  bars: Bar[];
+  editor: Editor;
+  filePath: string;
+}
+
+const state = (): State => ({
   bars: [],
   editor: {
     text: editor_text_C.main,
-    index: undefined,
+    index: [],
     container: undefined,
     obj: null
   },
@@ -28,38 +48,36 @@ const state = () => ({
 })
 
 // make the bar/bars be normal, be in bars' shape
-var normalBar = (bar) => {
-  if (!bar['title']) console.error('Bar require title')
-  bar['time'] = bar['time'] ? new Date(bar['time']) : new Date()
-  bar['OK'] = bar['OK'] ? bar['OK'] : false
-  bar['folding'] = bar['folding'] ? bar['folding'] : false
-  bar['child'] = normalBars(bar['child'])
+var normalBar = (bar: any): Bar => {
+  if (!bar.title) console.error('Bar require title')
+  bar.time = bar.time ? new Date(bar.time) : new Date()
+  bar.OK = bar.OK ? bar.OK : false
+  bar.folding = bar.folding ? bar.folding : false
+  bar.child = bar.child ? ([] as Bar[]) : normalBars(bar.child as any[])
   return bar
 }
 
-var normalBars = (bars) => {
+var normalBars = (bars: any[]): Bar[] => {
   var result = []
-  if (bars) {
-    for (var i = 0; i < bars.length; i++) {
-      if(bars[i])
-        result.push(normalBar(bars[i]))
-    }
+  for (var i = 0; i < bars.length; i++) {
+    if(bars[i])
+      result.push(normalBar(bars[i]))
   }
   return result
 }
 
 // get the bar by index
-var barByIndex = (bars, index) => {
-  var result = { child: bars }
+var barByIndex = (bars: Bar[], index: number[]): Bar => {
+  var result: any = { child: bars }
   for (var i = 0; i < index.length; i++) {
     result = result.child[index[i]]
   }
-  return result
+  return (result as Bar)
 }
 
 // mutations
-const mutations = {
-  init (state, { filePath }) {
+const mutations: MutationTree<any> = {
+  init (state: State, { filePath }: { filePath: string; }): void {
     // init Bars for todo application.
     // read `json` file form filePath, then init state.bars with update mutations.
     // ------------------------------------------------------------------------
@@ -77,7 +95,7 @@ const mutations = {
         })
         return
       }
-      state.bars = normalBars(JSON.parse(data))
+      state.bars = normalBars(JSON.parse(data.toString()))
     })
 
     // init the Editor
@@ -85,7 +103,7 @@ const mutations = {
     state.editor.container = document.createElement('div')
     state.editor.container.style.height = '5em'
     state.editor.obj = monaco.editor.create(state.editor.container, {
-      value: this.code,
+      value: '',
       language: 'markdown',
       folding: true,
       foldingStrategy: 'indentation',
@@ -109,7 +127,7 @@ const mutations = {
 
   // update Bars and save
   // set the state.bars' value to `bars`, then write it to filePath
-  update (state, { bars }) {
+  update (state: State, { bars }: { bars: Bar[]; }) {
     state.bars = bars
     fs.writeFile(state.filePath, JSON.stringify(state.bars), (err) => {
       if (err) {
@@ -119,35 +137,35 @@ const mutations = {
   },
 
   // kill bar by index
-  killBar (state, { index }) {
+  killBar (state: State, { index }: { index: number[] }) {
     // reset the editor's index
     this.commit('todolist/addBar', { index: undefined })
 
     var index_ = index.slice()
     if (index.length != 1) {
-      var i = index_.pop()
-      var aim = barByIndex(state.bars, index_)
-      remote.clipboard.writeText(aim.child[i].title)
-      aim.child.splice(i, 1)
+      var i: number | undefined = index_.pop();
+      var aim: Bar = barByIndex(state.bars, index_);
+      remote.clipboard.writeText(aim.child[i as number].title);
+      aim.child.splice((i as number), 1);
       this.commit('todolist/update', { bars: state.bars })
     } else {
-      remote.clipboard.writeText(state.bars[index[0]].title)
-      state.bars.splice(index[0], 1)
+      remote.clipboard.writeText(state.bars[index[0]].title);
+      state.bars.splice(index[0], 1);
       this.commit('todolist/update', { bars: state.bars })
     }
   },
 
   // change the bay's OK state by index
-  changeState (state, { index }) {
-    var aim = barByIndex(state.bars, index)
-    aim.OK = !aim.OK
-    this.commit('todolist/update', { bars: state.bars })
+  changeState (state: State, { index }: { index: number[] }) {
+    var aim = barByIndex(state.bars, index);
+    aim.OK = !aim.OK;
+    this.commit('todolist/update', { bars: state.bars });
   },
 
   // add Bar for todo list:
   //  - if index == undef, add bar to the root
   //  - else, add bar for bars[index[0]][index[1]]...
-  addBar (state, { index }) {
+  addBar (state: State, { index }: { index: number[] }) {
     state.editor.index = index
 
     if (state.editor.index != undefined) {
@@ -158,34 +176,34 @@ const mutations = {
     }
 
     // focus on the editor auto
-    state.editor.obj.focus()
+    state.editor.obj.focus();
     this.commit('todolist/update', { bars: state.bars })
   },
 
   // fold Bar for todo list
-  foldBar (state, { index }) {
-    var aim = barByIndex(state.bars, index)
-    aim.folding = !aim.folding
-    this.commit('todolist/update', { bars: state.bars })
+  foldBar (state: State, { index }: { index: number[]; }) {
+    var aim = barByIndex(state.bars, index);
+    aim.folding = !aim.folding;
+    this.commit('todolist/update', { bars: state.bars });
   },
 
   // submit by message and index, and then update it:
   //  - if index == undef, add bar to the root
   //  - else, add bar for bars[index]
-  submit (state, { message }) {
+  submit (state: State, { message }: { message: string; }) {
     if (state.editor.index != undefined) {
       var aim = barByIndex(state.bars, state.editor.index)
-      aim.child.unshift(normalBar({title: message}))
-      this.commit('todolist/update', { bars: state.bars })
+      aim.child.unshift(normalBar({title: message}));
+      this.commit('todolist/update', { bars: state.bars });
     } else {
-      state.bars.unshift(normalBar({title: message}))
+      state.bars.unshift(normalBar({title: message}));
       this.commit('todolist/update', { bars: state.bars })
     }
   }
 }
 
 const getters = {
-  state: state => index => {
+  state: (state: State) => (index: number[]) => {
     var aim = barByIndex(state.bars, index)
     if (aim.child.length != 0) {
       return aim.folding ? 'folding' : 'unfolding'
@@ -193,13 +211,13 @@ const getters = {
       return aim.OK ? 'OK' : 'not OK'
     }
   },
-  folding: state => index => {
+  folding: (state: State) => (index: number[]) => {
     return barByIndex(state.bars, index).folding
   },
-  havechildren: state => index => {
+  havechildren: (state: State) => (index: number[]) => {
     return barByIndex(state.bars, index).child.length != 0
   },
-  OK: (state, getters) => index => {
+  OK: (state: State, getters: any) => (index: number[]) => {
     var aim = barByIndex(state.bars, index)
     if (getters['havechildren'](index)) {
       var flag = true
@@ -221,3 +239,4 @@ export default {
   mutations,
   getters
 }
+

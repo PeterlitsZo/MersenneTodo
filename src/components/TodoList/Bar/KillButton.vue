@@ -2,15 +2,17 @@
   <Icon name="trash" class="barButton" />
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import Icon from '../../Comman/Icon.vue'
 
-  export default {
+  export default Vue.extend({
     name: 'KillButton',
     components: {
       Icon
     }
-  }
+  })
 </script>
 
 <style lang="scss">

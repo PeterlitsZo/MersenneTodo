@@ -11,8 +11,10 @@
   </router-link>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+
+  export default Vue.extend({
     name: 'NavButtom',
     props: {
       to: {type: String, required: true},
@@ -21,11 +23,15 @@
     },
     computed: {
       isactivation () {
-        console.log(this.$route.name, this.to)
-        return this.$route.name == this.to
+        var router = this.$route
+        if (name in router) {
+          return router.name == this.to
+        } else {
+          return false
+        }
       }
     }
-  }
+  })
 </script>
 
 <style lang="scss">

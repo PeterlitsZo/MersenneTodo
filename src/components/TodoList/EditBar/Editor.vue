@@ -2,8 +2,10 @@
   <div class="editor" ref="editor"></div>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import Vue from 'vue'
+
+  export default Vue.extend({
     name: 'CodeEditor',
     props: {
       initData: String
@@ -18,42 +20,10 @@
       event: 'change'
     },
     mounted () {
-      this.$refs.editor.appendChild(this.$store.state.todolist.editor.container)
-      // this.editor = monaco.editor.create(this.$refs.editor, {
-      //   value: this.code,
-      //   language: 'markdown',
-      //   folding: true,
-      //   foldingStrategy: 'indentation',
-      //   automaticLayout: true,
-      //   overviewRulerBorder: false,
-      //   scrollBeyondLastLine: false,
-      //   minimap: {
-      //     enabled: false
-      //   }
-      // })
-      // // Set the command for edit to enter the message
-      // this.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
-      //   console.log('enter ctrl enter')
-      //   this.$store.commit('todolist/submit', { message: this.editor.getValue() })
-      //   this.editor.setValue('')
-      // })
-      // // Set the command for enter the message for root
-      // this.editor.addCommand(monaco.KeyCode.Escape, () => {
-      //   console.log('enter esc')
-      //   this.$store.commit('todolist/addBar', { index: undefined })
-      // })
-    },
-    beforeDestroy () {
-      this.editor && this.editor.dispose()
-    },
-    watch: {
-      initData () {
-        if (this.initData !== this.code) {
-          this.editor.setValue(this.initData)
-        }
-      }
+      var editor: HTMLDivElement = this.$refs.editor as HTMLDivElement;
+      editor.appendChild(this.$store.state.todolist.editor.container)
     }
-  }
+  })
 </script>
 
 <style lang="scss" scoped>

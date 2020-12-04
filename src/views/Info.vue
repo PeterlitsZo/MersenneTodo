@@ -20,24 +20,29 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
   import Title from '../components/Comman/Title.vue'
   import EndTitle from '../components/Comman/EndTitle.vue'
 
+  import Vue from 'vue'
+
   import { shell } from 'electron'
 
-  export default {
+  export default Vue.extend({
     name: 'Info',
     mounted () {
-      document.getElementById('issue-path').addEventListener('click', () => {
-        shell.openExternal('https://github.com/PeterlitsZo/MersenneTodo/issues')
-      })
+      var issuePath = document.getElementById('issue-path');
+      if (issuePath) {
+        issuePath.addEventListener('click', () => {
+          shell.openExternal('https://github.com/PeterlitsZo/MersenneTodo/issues')
+        })
+      }
     },
     components : {
       Title,
       EndTitle
     }
-  }
+  })
 </script>
 
 <style lang="scss">
