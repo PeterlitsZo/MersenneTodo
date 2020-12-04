@@ -10,9 +10,11 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
+declare const __static: string;
+
 async function createWindow() {
   // Create the browser window.
-  console.log(path.join(__static, 'icon.png'))
+  console.log(path.join(__static, 'icon.png'));
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -23,16 +25,16 @@ async function createWindow() {
       // This application do not need remote content. leave it as true
       nodeIntegration: true
     }
-  })
+  });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
-    await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
+    if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
-    createProtocol('app')
+    createProtocol('app');
     // Load the index.html when not in development
-    win.loadURL('app://./index.html')
+    win.loadURL('app://./index.html');
   }
 }
 
