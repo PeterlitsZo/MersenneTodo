@@ -28,11 +28,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.24"
-     inkscape:cx="100"
-     inkscape:cy="100"
+     inkscape:zoom="2.9981328"
+     inkscape:cx="144.13288"
+     inkscape:cy="75.10455"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer4"
      showgrid="true"
      units="in"
      inkscape:snap-bbox="true"
@@ -87,7 +87,7 @@
      id="layer4"
      inkscape:label="Layer 4">
     <path
-       style="fill:#666666;stroke:none;stroke-width:0.52916667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#e6e6e6;stroke:none;stroke-width:0.52916667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M -1.9999979e-7,26.458333 5.2916664,21.166666 15.875,31.75 47.624999,6.6666665e-7 52.916666,5.2916673 15.875,39.687499 Z"
        id="path310"
        inkscape:connector-curvature="0" />
