@@ -36,10 +36,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import Icon from '../../Comman/Icon.vue'
 
-  export default {
+  export default Vue.extend({
     name: 'toolkit',
     props: {
       ishovered: {
@@ -58,21 +60,19 @@
     },
     methods: {
       deleteBar () {
-        console.log('delete bar: ', this.index)
-        this.$store.commit('todolist/killBar', {index: this.index})
+        this.$store.commit('todolist/killBar', {index: (this as any).index})
       },
       addBar () {
-        console.log('add bar to: ', this.index)
-        this.$store.commit('todolist/addBar', {index: this.index,})
+        this.$store.commit('todolist/addBar', {index: (this as any).index})
       },
       foldBar () {
-        this.$store.commit('todolist/foldBar', {index: this.index})
+        this.$store.commit('todolist/foldBar', {index: (this as any).index})
       },
       unClick () {
-        this.clicked = false
+        (this as any).clicked = false
       },
       setClick () {
-        this.clicked = true
+        (this as any).clicked = true
       },
     },
     computed: {
@@ -89,7 +89,7 @@
     components: {
       Icon
     }
-  }
+  })
 </script>
 
 <style lang="scss">

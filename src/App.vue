@@ -5,13 +5,15 @@
   </div>
 </template>
 
-<script>
-  import Navigation from './components/Navigation.vue'
+<script lang="ts">
+  import Vue from 'vue'
 
   import { remote } from 'electron'
   import path from 'path'
 
-  export default {
+  import Navigation from './components/Navigation.vue'
+
+  export default Vue.extend({
     data: () => {
       return {
         datafilepath: path.join(remote.app.getPath('userData'), 'mersennetodo.json')
@@ -23,7 +25,7 @@
     components: {
       Navigation
     }
-  }
+  })
 </script>
 
 <style lang="scss">

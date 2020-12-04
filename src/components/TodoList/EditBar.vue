@@ -5,20 +5,22 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import CodeEditor from './EditBar/Editor.vue'
 
-  export default {
+  export default Vue.extend({
     name: 'EditBar',
     methods: {
-      submit (message) {
+      submit (message: string) {
         this.$store.commit('todolist/submit', { message })
       }
     },
     components: {
       'CodeEditor': CodeEditor
     }
-  }
+  })
 </script>
 
 <style lang="scss">

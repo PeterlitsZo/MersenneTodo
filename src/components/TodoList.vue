@@ -19,13 +19,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import Bar from './TodoList/Bar.vue'
   import EditBar from './TodoList/EditBar.vue'
   import Title from './Comman/Title.vue'
   import EndTitle from './Comman/EndTitle.vue'
 
-  export default {
+  export default Vue.extend({
     name: 'TodoList',
     components: {
       Bar,
@@ -33,7 +35,7 @@
       Title,
       EndTitle
     }
-  }
+  })
 </script>
 
 <style lang="scss">

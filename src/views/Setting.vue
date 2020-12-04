@@ -16,22 +16,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import Title from '../components/Comman/Title.vue'
 
   import { shell } from 'electron'
 
-  export default {
+  export default Vue.extend({
     name: 'Info',
     mounted () {
-      document.getElementById('datafile-path').addEventListener('click', () => {
+      var datafilePath: HTMLSpanElement = document.getElementById('datafile-path') as HTMLSpanElement;
+      datafilePath.addEventListener('click', () => {
         shell.showItemInFolder(this.$store.state.todolist.filePath)
       })
     },
     components : {
       Title,
     }
-  }
+  })
 </script>
 
 <style lang="scss">

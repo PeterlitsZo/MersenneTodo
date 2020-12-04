@@ -6,15 +6,17 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import Vue from 'vue'
+
   import NavButtom from './Navigation/NavButtom.vue'
 
-  export default {
+  export default Vue.extend({
     name: 'navigation',
     components: {
       NavButtom
     }
-  }
+  })
 </script>
 
 <style lang="scss">
