@@ -51,6 +51,8 @@ This is a todo list for this project:
     - [x] Feat: icon component
     - [x] Feat: title component
   - [ ] TodoList
+    - [ ] Fix : Nav cannot highlight now
+    - [ ] Fix : Cannot edit
     - [ ] Feat: Better toolkit
     - [ ] Feat: make the bar can be edited
     - [ ] Feat: Javascript support

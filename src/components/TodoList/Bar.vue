@@ -44,6 +44,7 @@
 
   import MarkdownIt from 'markdown-it'
   import highlight from 'highlight.js'
+
   var md = new MarkdownIt({
     highlight: (str: string, lang: string) => {
       if (lang && highlight.getLanguage(lang)) {
@@ -96,7 +97,8 @@
         return md.renderInline(this.obj.title)
       },
       folding () {
-        return this.$store.getters['todolist/folding'](this.index)
+        var folding: boolean = this.$store.getters['todolist/folding'](this.index);
+        return folding;
       },
       OK () {
         return this.$store.getters['todolist/OK'](this.index)

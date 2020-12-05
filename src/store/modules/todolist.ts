@@ -49,11 +49,11 @@ const state = (): State => ({
 
 // make the bar/bars be normal, be in bars' shape
 var normalBar = (bar: any): Bar => {
-  if (!bar.title) console.error('Bar require title')
+  if (!bar.title) console.error('Bar require title!!!')
   bar.time = bar.time ? new Date(bar.time) : new Date()
   bar.OK = bar.OK ? bar.OK : false
   bar.folding = bar.folding ? bar.folding : false
-  bar.child = bar.child ? ([] as Bar[]) : normalBars(bar.child as any[])
+  bar.child = bar.child ? normalBars(bar.child as any[]) : ([] as any[])
   return bar
 }
 
