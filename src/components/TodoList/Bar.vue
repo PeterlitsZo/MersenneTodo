@@ -7,11 +7,13 @@
       @mouseover="setHover"
       @mouseout="setUnHover"
     >
-      <Toolkit
-        class="toolkit"
-        :ishovered="ishovered"
-        :index="index"
-      />
+      <div class="toolkit-swaper">
+        <Toolkit
+          class="toolkit"
+          :ishovered="ishovered"
+          :index="index"
+        />
+      </div>
       <div
         @click="changeState"
         class="barName"
@@ -133,9 +135,24 @@
       }
     }
 
-    /* Icon at the heading of the bar */
-    .toolkit {
+    /* Toolkit at the heading of the bar */
+    .toolkit-swaper {
       height: 100%;
+      position: relative;
+      width: 2em;
+
+      .toolkit {
+        height: 100%;
+        background: white;
+        position: absolute;
+        left: 0;
+
+        &:hover {
+          border: 1px solid #f2f2f2;
+          box-shadow: 0 0 5px #aaaaaa;
+          z-index: 10;
+        }
+      }
     }
 
     /* BarName, the main part of the bar */
