@@ -51,6 +51,7 @@ This is a todo list for this project:
     - [x] Feat: icon component
     - [x] Feat: title component
   - [ ] TodoList
+    - [ ] Feat: Draggle
     - [ ] Feat: Better toolkit
     - [ ] Feat: make the bar can be edited
     - [ ] Feat: Javascript support
@@ -67,6 +68,7 @@ This is a todo list for this project:
   - [ ] DayChart
   - [ ] Code Editor
   - [ ] Others
+    - [ ] Feat: Skeleton screen
     - [ ] Feat: remove the title bars of the application
     - [x] Feat: add a icon of the application
     - [x] Fix : the setTimeout function in src/main.js
