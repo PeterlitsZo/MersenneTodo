@@ -24,7 +24,7 @@
     computed: {
       isactivation () {
         var router = this.$route
-        if (name in router) {
+        if ('name' in router) {
           return router.name == this.to
         } else {
           return false
