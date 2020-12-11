@@ -49,11 +49,6 @@
       margin-left: $nav-width;
     }
   }
-  
-  body, html {
-    height: 100%;
-    margin: 0;
-  }
 
   kbd {
     font-family: monospace;

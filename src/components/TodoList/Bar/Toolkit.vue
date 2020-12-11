@@ -9,6 +9,10 @@
         <!-- unfolded -->
         <Icon v-else name="angle-down" />
       </div>
+      <div v-else class="icon" @click="changeState">
+        <Icon v-if="state == 'OK'" name="check-circle" />
+        <Icon v-else name="regular/circle" />
+      </div>
 
       <!-- Add sub list -->
       <div class="icon" @click="addBar">
@@ -83,6 +87,13 @@
           document.removeEventListener('mousemove', closeForgotToolkit, true);
         };
         document.addEventListener('mousemove', closeForgotToolkit, true);
+      },
+
+      changeState () {
+        console.log(this);
+        if (!this.$store.getters['todolist/havechildren']((this as any).index)) {
+          this.$store.commit('todolist/changeState', {index: (this as any).index});
+        }
       },
     },
     computed: {

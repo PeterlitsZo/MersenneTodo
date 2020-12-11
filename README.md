@@ -46,18 +46,20 @@ This is a todo list for this project:
 
 - [ ] Root
   - [ ] Rfcr
+    - [ ] Rfcr: Split store/*/todolist
   - [ ] Comman
-    - [ ] ...
     - [x] Feat: icon component
     - [x] Feat: title component
   - [ ] TodoList
     - [ ] Feat: Draggle
-    - [ ] Feat: Better toolkit
     - [ ] Feat: make the bar can be edited
     - [ ] Feat: Javascript support
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
+    - [ ] Feat: Better toolkit
+      - [ ] Feat: OK buttom
+      - [ ] Feat: Draggle buttom
     - [x] Fix : Nav cannot highlight now
     - [x] Fix : Cannot edit
     - [x] Feat: make the toolkit auto pop
@@ -69,12 +71,12 @@ This is a todo list for this project:
   - [ ] Code Editor
   - [ ] Others
     - [ ] Feat: Skeleton screen
-    - [ ] Feat: remove the title bars of the application
+    - [x] Feat: remove the title bars of the application
     - [x] Feat: add a icon of the application
     - [x] Fix : the setTimeout function in src/main.js
     - [x] Feat: Use Vuex
     - [x] Fix : flex looks bad.
-    - [x] Fix : move the default json file be other place.
+    - [x] ...
   - [ ] Setting
     - [ ] Setting the path. (add a setting json file)
     - [x] Open file manager of the userdata json file
