@@ -2,17 +2,7 @@
   <div @mouseenter="setClick" @mouseleave="unClick">
     <!-- State: Clicked -->
     <div v-if="clicked" key="toolkit" class="fullHeight">
-      <!-- Fold self -->
-      <div v-if="havechildren" class="icon" @click="foldBar">
-        <!-- folded -->
-        <Icon v-if="folding" name="angle-right" />
-        <!-- unfolded -->
-        <Icon v-else name="angle-down" />
-      </div>
-      <div v-else class="icon" @click="changeState">
-        <Icon v-if="state == 'OK'" name="check-circle" />
-        <Icon v-else name="regular/circle" />
-      </div>
+      <State class="icon" :index="index"/>
 
       <!-- Add sub list -->
       <div class="icon" @click="addBar">
@@ -30,12 +20,7 @@
       <div v-if="ishovered" class="icon">
         <Icon name="ellipsis-h"/>
       </div>
-      <div v-else class="icon">
-        <Icon v-if="state == 'OK'" name="check-circle" />
-        <Icon v-else-if="state == 'not OK'" name="regular/circle" />
-        <Icon v-else-if="state == 'folding'" name="angle-right" />
-        <Icon v-else name="angle-down" />
-      </div>
+      <State class="icon" :index="index" v-else/>
     </div>
   </div>
 </template>
@@ -44,6 +29,8 @@
   import Vue from 'vue'
 
   import Icon from '../../Comman/Icon.vue'
+
+  import State from './Toolkit/State.vue'
 
   export default Vue.extend({
     name: 'toolkit',
@@ -69,9 +56,6 @@
       addBar () {
         this.$store.commit('todolist/addBar', {index: (this as any).index})
       },
-      foldBar () {
-        this.$store.commit('todolist/foldBar', {index: (this as any).index})
-      },
 
       unClick () {
         (this as any).clicked = false;
@@ -88,27 +72,10 @@
         };
         document.addEventListener('mousemove', closeForgotToolkit, true);
       },
-
-      changeState () {
-        console.log(this);
-        if (!this.$store.getters['todolist/havechildren']((this as any).index)) {
-          this.$store.commit('todolist/changeState', {index: (this as any).index});
-        }
-      },
-    },
-    computed: {
-      state () {
-        return this.$store.getters['todolist/state'](this.index)
-      },
-      folding () {
-        return this.$store.getters['todolist/folding'](this.index)
-      },
-      havechildren () {
-        return this.$store.getters['todolist/havechildren'](this.index)
-      }
     },
     components: {
-      Icon
+      Icon,
+      State
     }
   })
 </script>

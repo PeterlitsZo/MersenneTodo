@@ -157,6 +157,9 @@ const mutations: MutationTree<any> = {
 
   // change the bay's OK state by index
   changeState (state: State, { index }: { index: number[] }) {
+    // do not change the State if the index have its children
+    if ((this.getters as any)["todolist/havechildren"](index))
+      return;
     var aim = barByIndex(state.bars, index);
     aim.OK = !aim.OK;
     this.commit('todolist/update', { bars: state.bars });
