@@ -3,16 +3,12 @@
     <!-- State: Clicked -->
     <div v-if="clicked" key="toolkit" class="fullHeight">
       <State class="icon" :index="index"/>
-
       <!-- Add sub list -->
       <div class="icon" @click="addBar">
         <Icon name="plus" />
       </div>
+      <killButtom class="icon" :index="index" />
 
-      <!-- Kill Button-->
-      <div class="icon KillButton" @click="deleteBar">
-        <Icon class="icon" name="trash" />
-      </div>
     </div>
 
     <!-- State: Unclicked -->
@@ -31,6 +27,7 @@
   import Icon from '../../Comman/Icon.vue'
 
   import State from './Toolkit/State.vue'
+  import killButtom from './Toolkit/killButtom.vue'
 
   export default Vue.extend({
     name: 'toolkit',
@@ -50,9 +47,6 @@
       }
     },
     methods: {
-      deleteBar () {
-        this.$store.commit('todolist/killBar', {index: (this as any).index})
-      },
       addBar () {
         this.$store.commit('todolist/addBar', {index: (this as any).index})
       },
@@ -75,7 +69,8 @@
     },
     components: {
       Icon,
-      State
+      State,
+      killButtom,
     }
   })
 </script>
