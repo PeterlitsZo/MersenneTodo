@@ -3,12 +3,8 @@
     <!-- State: Clicked -->
     <div v-if="clicked" key="toolkit" class="fullHeight">
       <State class="icon" :index="index"/>
-      <!-- Add sub list -->
-      <div class="icon" @click="addBar">
-        <Icon name="plus" />
-      </div>
+      <addBar class="icon" :index="index"/>
       <killButtom class="icon" :index="index" />
-
     </div>
 
     <!-- State: Unclicked -->
@@ -16,7 +12,7 @@
       <div v-if="ishovered" class="icon">
         <Icon name="ellipsis-h"/>
       </div>
-      <State class="icon" :index="index" v-else/>
+      <State v-else class="icon" :index="index"/>
     </div>
   </div>
 </template>
@@ -28,29 +24,26 @@
 
   import State from './Toolkit/State.vue'
   import killButtom from './Toolkit/killButtom.vue'
+  import addBar from './Toolkit/addBar.vue'
 
   export default Vue.extend({
     name: 'toolkit',
     props: {
       ishovered: {
         type: Boolean,
-        required: true
+        required: true,
       },
       index: {
         type: Array,
-        required: true
+        required: true,
       }
     },
     data () {
       return {
-        clicked: false
+        clicked: false,
       }
     },
     methods: {
-      addBar () {
-        this.$store.commit('todolist/addBar', {index: (this as any).index})
-      },
-
       unClick () {
         (this as any).clicked = false;
       },
@@ -71,8 +64,9 @@
       Icon,
       State,
       killButtom,
-    }
-  })
+      addBar,
+    },
+  });
 </script>
 
 <style lang="scss">
