@@ -9,9 +9,7 @@
 
     <!-- State: Unclicked -->
     <div v-else key="toolkitinfo" class="fullHeight">
-      <div v-if="ishovered" class="icon">
-        <Icon name="ellipsis-h"/>
-      </div>
+      <Ellipsis v-if="ishovered" class="icon"/>
       <State v-else class="icon" :index="index"/>
     </div>
   </div>
@@ -20,11 +18,10 @@
 <script lang="ts">
   import Vue from 'vue'
 
-  import Icon from '../../Comman/Icon.vue'
-
   import State from './Toolkit/State.vue'
   import killButtom from './Toolkit/killButtom.vue'
   import addBar from './Toolkit/addBar.vue'
+  import Ellipsis from './Toolkit/Ellipsis.vue'
 
   export default Vue.extend({
     name: 'toolkit',
@@ -61,10 +58,10 @@
       },
     },
     components: {
-      Icon,
       State,
       killButtom,
       addBar,
+      Ellipsis,
     },
   });
 </script>
