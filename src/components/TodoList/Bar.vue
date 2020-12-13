@@ -20,7 +20,7 @@
         :class="{deleteText: OK, left: !havechildren}"
       >
         <span v-html="mdedTitle" />
-        <small class="time">{{ obj.time.toLocaleTimeString() }}</small>
+        <small class="time">{{ obj.time.toLocaleDateString() }}</small>
       </div>
     </div>
 

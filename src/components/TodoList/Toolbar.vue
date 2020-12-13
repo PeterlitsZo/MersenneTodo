@@ -30,8 +30,8 @@
     background: $lightgray;
 
     .history {
-      height: 20px;
-      width: 20px;
+      height: 1em;
+      width: 2em;
     }
   }
 </style>

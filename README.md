@@ -51,6 +51,7 @@ This is a todo list for this project:
     - [x] Feat: icon component
     - [x] Feat: title component
   - [ ] TodoList
+    - [ ] Feat: Add a process bar
     - [ ] Feat: Draggle
     - [ ] Feat: make the bar can be edited
     - [ ] Feat: Javascript support

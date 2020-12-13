@@ -4,7 +4,7 @@
     <Title class="title">TodoList</Title>
 
     <!-- The toll bar bar -->
-    <Toolbar />
+    <Toolbar class="toolbar"/>
 
     <!-- The list of the TodoList/Bar -->
     <div class="todolist">
@@ -43,39 +43,43 @@
   });
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .noselect {
     user-select: none;
-  }
-
-  .title {
-    font-size: 2em;
   }
 
   .TodoList {
     display: flex;
     flex-flow: column;
     height: 100%;
-  }
 
-  .todolist {
-    padding: 20px;
-    flex-grow: 1;
-    overflow: auto;
-    font-size: 1.3em;
-    .Bar {
-      position: relative;
+    .title {
+      font-size: 2em;
+    }
 
-      + .Bar::before {
-        background-color: #f2f2f2;
-        position: absolute;
-        content: '';
-        height: 1px;
-        top: 0;
-        left: 0;
-        right: 0;
-        opacity: 1;
-        pointer-events: none;
+    .toolbar {
+      font-size: 1.3em;
+    }
+
+    .todolist {
+      padding: 20px;
+      flex-grow: 1;
+      overflow: auto;
+      font-size: 1.3em;
+      .Bar {
+        position: relative;
+
+        + .Bar::before {
+          background-color: #f2f2f2;
+          position: absolute;
+          content: '';
+          height: 1px;
+          top: 0;
+          left: 0;
+          right: 0;
+          opacity: 1;
+          pointer-events: none;
+        }
       }
     }
   }
