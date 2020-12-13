@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="icon" @click="addBar">
-      <Icon name="plus" />
-    </div>
+  <div class="icon" @click="addBar">
+    <Icon name="plus" />
   </div>
 </template>
 

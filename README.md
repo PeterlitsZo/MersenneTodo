@@ -57,8 +57,11 @@ This is a todo list for this project:
     - [ ] Feat: update the default helpful msg
     - [ ] Feat: make the overflow bar like the Monaco editor bar
     - [ ] Feat: history
-    - [ ] Feat: Better toolkit
-      - [ ] Feat: OK buttom
+      - [ ] Feat: todolist/history component
+      - [ ] Feat: settings.json
+      - [ ] Feat: save as a object pool
+    - [x] Feat: Better toolkit
+      - [x] Feat: OK buttom
       - [ ] Feat: Draggle buttom
     - [x] Fix : Nav cannot highlight now
     - [x] Fix : Cannot edit

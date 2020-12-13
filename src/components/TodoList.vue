@@ -3,6 +3,9 @@
     <!-- The title of the TodoList -->
     <Title class="title">TodoList</Title>
 
+    <!-- The toll bar bar -->
+    <Toolbar />
+
     <!-- The list of the TodoList/Bar -->
     <div class="todolist">
       <Bar
@@ -20,22 +23,24 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import Vue from 'vue';
 
-  import Bar from './TodoList/Bar.vue'
-  import EditBar from './TodoList/EditBar.vue'
-  import Title from './Comman/Title.vue'
-  import EndTitle from './Comman/EndTitle.vue'
+  import Bar from './TodoList/Bar.vue';
+  import EditBar from './TodoList/EditBar.vue';
+  import EndTitle from './Comman/EndTitle.vue';
+  import Title from './Comman/Title.vue';
+  import Toolbar from './TodoList/Toolbar.vue';
 
   export default Vue.extend({
     name: 'TodoList',
     components: {
       Bar,
       EditBar,
+      EndTitle,
       Title,
-      EndTitle
+      Toolbar,
     }
-  })
+  });
 </script>
 
 <style lang="scss">

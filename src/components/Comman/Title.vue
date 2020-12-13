@@ -11,9 +11,11 @@
 </script>
 
 <style lang="scss">
+  @import './comman.scss';
+
   .title {
     position: relative;
-    padding: 20px;
+    padding: $normalPadding;
     justify-content: center;
     align-items: center;
     &::before {

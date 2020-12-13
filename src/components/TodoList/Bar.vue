@@ -125,7 +125,7 @@
         color: #888888;
       }
       &:hover {
-        color: #3d7e9a;
+        color: #206080;
       }
     }
     &:not([class~="OK"]) {
@@ -133,7 +133,7 @@
         color: black;
       }
       &:hover {
-        color: #387994;
+        color: #4f8fa4;
       }
     }
 

@@ -47,6 +47,8 @@
       setClick () {
         (this as any).clicked = true;
 
+        // If it forget to close the toolkit, we can listen the mousemove to
+        // close it autoly
         var closeForgotToolkit = (event: any) => {
           var element = event.target;
           if (this.$el !== element && !this.$el.contains(element)) {
