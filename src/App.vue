@@ -6,26 +6,26 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import Vue from 'vue';
 
-  import { remote } from 'electron'
-  import path from 'path'
+  import { remote } from 'electron';
+  import path from 'path';
 
-  import Navigation from './components/Navigation.vue'
+  import Navigation from './components/Navigation.vue';
 
   export default Vue.extend({
     data: () => {
       return {
-        datafilepath: path.join(remote.app.getPath('userData'), 'mersennetodo.json')
-      }
+        settingPath: path.join(remote.app.getPath('userData'), 'setting.json'),
+      };
     },
     created () {
-      this.$store.commit('todolist/init', { filePath: this.datafilepath })
+      this.$store.commit('todolist/init', { settingPath: this.settingPath });
     },
     components: {
-      Navigation
-    }
-  })
+      Navigation,
+    },
+  });
 </script>
 
 <style lang="scss">

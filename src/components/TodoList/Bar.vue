@@ -20,7 +20,7 @@
         :class="{deleteText: OK, left: !havechildren}"
       >
         <span v-html="mdedTitle" />
-        <small class="time">{{ obj.time.toLocaleDateString() }}</small>
+        <small class="time">{{ timeString }}</small>
       </div>
     </div>
 
@@ -104,8 +104,11 @@
         return this.$store.getters['todolist/OK'](this.index)
       },
       havechildren () {
-        return this.$store.getters['todolist/havechildren'](this.index)
-      }
+        return this.$store.getters['todolist/havechildren'](this.index);
+      },
+      timeString () {
+        return this.obj.time.toLocaleDateString();
+      },
     },
     components: {
       Toolkit

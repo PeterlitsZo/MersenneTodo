@@ -7,7 +7,7 @@
         <div class="Bar">
           file path:
           <span id="datafile-path">
-            {{ $store.state.todolist.filePath }}
+            {{ $store.state.todolist.settingPath }}
           </span>
         </div>
 
@@ -28,7 +28,7 @@
     mounted () {
       var datafilePath: HTMLSpanElement = document.getElementById('datafile-path') as HTMLSpanElement;
       datafilePath.addEventListener('click', () => {
-        shell.showItemInFolder(this.$store.state.todolist.filePath)
+        shell.showItemInFolder(this.$store.state.todolist.settingPath)
       })
     },
     components : {
