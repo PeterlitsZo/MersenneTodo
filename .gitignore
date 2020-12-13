@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
-
+.mersennetodo
 
 # local env files
 .env.local
