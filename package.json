@@ -4,7 +4,6 @@
   "author": "Mersenne Prime Foundry",
   "email": "(main developer) peterlitszo@outlook.com",
   "private": true,
-  "author": "Mersenne Prime Foundry",
   "scripts": {
     "electron:allbuild": "yarn electron:build -w nsis -l snap -l AppImage",
     "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
@@ -69,6 +68,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "email": "(main developer) peterlitszo@outlook.com"
+  ]
 }

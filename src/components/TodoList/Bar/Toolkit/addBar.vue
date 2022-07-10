@@ -17,7 +17,10 @@
     },
     methods: {
       addBar () {
-        this.$store.commit('todolist/addBar', {index: (this as any).index});
+        this.$store.commit(
+          'todolist/changeNextBarParentIndex',
+          { index: (this as any).index },
+        );
       },
     },
     components: {

@@ -122,7 +122,7 @@
 
     &[class~="OK"] {
       &:not(:hover) {
-        color: #888888;
+        color: #AAA;
       }
       &:hover {
         color: #206080;

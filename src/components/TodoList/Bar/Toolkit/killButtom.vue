@@ -18,7 +18,7 @@
     },
     methods: {
       deleteBar () {
-        this.$store.commit('todolist/killBar', {index: (this as any).index})
+        this.$store.commit('todolist/deleteBar', {index: (this as any).index})
       },
     },
     components: {

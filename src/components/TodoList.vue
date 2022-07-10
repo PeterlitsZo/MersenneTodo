@@ -10,7 +10,7 @@
     <div class="todolist">
       <Bar
         class="Bar"
-        v-for="(bar, index) in $store.state.todolist.bars"
+        v-for="(bar, index) in $store.state.todolist.barRoot.child"
         :obj="bar"
         :index="[index]"
         :key="index"
