@@ -9,21 +9,14 @@ interface InitPayload {
   filePath: string;
 }
 
-const INIT_BARS = normalBars([
-  { title: '1. Click on my text to set my state (OK/Todo)' },
-  {
-    title: (
-      '2. Want to set a new Todo? Edit at below editor, then press '
-      + '`Ctrl+Enter`'
-    )
-  },
-  {
-    title: (
-      '3. A Useless Todo bar? move on me and you can find a bin icon, then '
-      + 'click on the my delete bin icon'
-    )
-  }
-]);
+const INIT_BAR_TITLES = [
+  '1. Click on my text to set my state (OK/Todo)',
+  '2. Want to set a new Todo? Edit at below editor, then press `Ctrl+Enter`',
+  '3. A Useless Todo bar? move on me and you can find a bin icon, then click ' +
+    'on the my delete bin icon',
+];
+
+const INIT_BARS = normalBars(INIT_BAR_TITLES.map(title => { title }));
 
 const MONACO_CONFIG: monaco.editor.IStandaloneEditorConstructionOptions = {
   value: '',
